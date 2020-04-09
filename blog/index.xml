@@ -20,5 +20,15 @@
       <description>テスト 試しにHugoでサイトを構築してみる。</description>
     </item>
     
+    <item>
+      <title>Hello, Cluttered World!</title>
+      <link>https://h1go.github.io/blog/2018/11/hello-world/</link>
+      <pubDate>Sun, 04 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://h1go.github.io/blog/2018/11/hello-world/</guid>
+      <description>なんとなくブログもどきを作ってみた。
+面白ドメインを探していたら「clutte.red」（cluttered = 雑然とした・散らかった）というドメインを取ってしまったのと、ちょっとした知見等を誰かのために共有する場所があれば良いなあと以前から思っていたので。</description>
+    </item>
+    
   </channel>
 </rss>

@@ -3,12 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://h1go.github.io/blog/</loc>
-    <lastmod>2020-04-09T00:12:59+09:00</lastmod>
+    <loc>https://h1go.github.io/about/</loc>
+    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://h1go.github.io/categories/blog/</loc>
+    <loc>https://h1go.github.io/</loc>
+    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://h1go.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://h1go.github.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://h1go.github.io/blog/</loc>
     <lastmod>2020-04-09T00:12:59+09:00</lastmod>
   </url>
   
@@ -22,93 +37,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="https://h1go.github.io/fr/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pl"
-                href="https://h1go.github.io/pl/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://h1go.github.io/pt/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://h1go.github.io/de/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://h1go.github.io/es/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://h1go.github.io/zh-cn/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://h1go.github.io/zh-tw/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="ja"
                 href="https://h1go.github.io/categories/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://h1go.github.io/</loc>
-    <lastmod>2020-04-09T00:12:59+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://h1go.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://h1go.github.io/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pl"
-                href="https://h1go.github.io/pl/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://h1go.github.io/pt/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://h1go.github.io/de/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://h1go.github.io/es/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://h1go.github.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://h1go.github.io/zh-tw/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://h1go.github.io/"
                 />
   </url>
   
@@ -123,6 +53,11 @@
   </url>
   
   <url>
+    <loc>https://h1go.github.io/categories/misc/</loc>
+    <lastmod>2020-04-09T00:12:59+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://h1go.github.io/tags/</loc>
     <lastmod>2020-04-09T00:12:59+09:00</lastmod>
     <xhtml:link
@@ -132,69 +67,14 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="https://h1go.github.io/fr/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pl"
-                href="https://h1go.github.io/pl/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://h1go.github.io/pt/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://h1go.github.io/de/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://h1go.github.io/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://h1go.github.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://h1go.github.io/zh-tw/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="ja"
                 href="https://h1go.github.io/tags/"
                 />
   </url>
   
   <url>
-    <loc>https://h1go.github.io/about/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pl"
-                href="https://h1go.github.io/pl/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://h1go.github.io/fr/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://h1go.github.io/pt/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://h1go.github.io/about/"
-                />
+    <loc>https://h1go.github.io/blog/2018/11/hello-world/</loc>
+    <lastmod>2018-11-04T00:00:00+09:00</lastmod>
   </url>
   
   <url>
