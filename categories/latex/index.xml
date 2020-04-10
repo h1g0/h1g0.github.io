@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LaTeX on Cluttered Room</title>
+    <link>https://h1go.github.io/categories/latex/</link>
+    <description>Recent content in LaTeX on Cluttered Room</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 11 Nov 2018 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://h1go.github.io/categories/latex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LaTeXでパワポみたいなハンドアウト（配布資料）を作る</title>
+      <link>https://h1go.github.io/blog/2018/11/latex-handout/</link>
+      <pubDate>Sun, 11 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://h1go.github.io/blog/2018/11/latex-handout/</guid>
+      <description>プレゼンテーションの際にPowerPointではハンドアウトとして1枚の紙に4枚や6枚などのスライドを印刷したものを配ることが多い． BeamerなどLaTeXでスライドを作成している場合も，そういったPowerPointのようなハンドアウトもできればLaTeXで作りたい． そういう時の解決法．
+pdfpagesパッケージを使ってスライドのPDF（下記のコードではmain.pdf）を読み込んで配置する．
+\documentclass[dvipdfmx,uplatex,a4j,landscape]{jsarticle} \usepackage[top=12.7truemm,bottom=12.7truemm,left=12.7truemm,right=12.7truemm,landscape]{geometry} \usepackage{pdfpages} \begin{document} \includepdf[pages=-,nup=2x2,frame,noautoscale,delta=5mm 8mm]{main.pdf} %横に2x2の4枚 \end{document} こんな感じのLaTeX文書を書くと
+ こんな感じのハンドアウトができる．
+簡単に解説すると，\includepdfのnupオプションで並べる枚数（ここでは2x2の4枚）を指定し，frameオプションで枠を付け，noautoscaleおよびdeltaオプションで各スライド間の余白を作っている．</description>
+    </item>
+    
+    <item>
+      <title>LaTeXで目次にページ番号のない独自項目を追加する</title>
+      <link>https://h1go.github.io/blog/2018/11/latex-addcontentsline-without-page-no/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://h1go.github.io/blog/2018/11/latex-addcontentsline-without-page-no/</guid>
+      <description>一般的にLaTeXで目次に独自の項目を追加するには，\addcontentslineを用いるのが一般的である． しかしこのやり方では，ページ番号が自動的に付加されてしまう．これはページ番号を出力したくない場合には不便である．そういう時の解決法．
+\usepackage{tocloft} した上で
+\cftaddtitleline{toc}{section}{\numberline{番号}{セクション名}{} すると\addcontentsするよりも楽．</description>
+    </item>
+    
+    <item>
+      <title>LaTeXでテーブル（表）のキャプションをカスタマイズする</title>
+      <link>https://h1go.github.io/blog/2018/11/latex-table-caption/</link>
+      <pubDate>Fri, 09 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://h1go.github.io/blog/2018/11/latex-table-caption/</guid>
+      <description>LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．
+具体的には
+ こういう表を
+ こんな感じにしたい． （例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）
+解決法 threeparttableパッケージと captionパッケージを使用する． どちらもTeXLiveにはデフォルトで入ってるはず．
+\documentclass[uplatex,a4j]{jsarticle} \usepackage{threeparttable} \usepackage{caption} \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} \begin{document} \begin{table}[ht] \centering \begin{threeparttable} \caption{キャプションが左寄せの表} \begin{tabular}{|l|l|l|l|} \hline ほげほげほげ &amp;amp; ほげほげほげ &amp;amp; ほげほげほげ &amp;amp; ほげほげほげ \\ \hline ああああ &amp;amp; いいいい &amp;amp; うううう &amp;amp; ええええ \\ \hline \end{tabular} \end{threeparttable} \end{table} \end{document} こんな感じ．
+キャブションをカスタマイズするには
+\captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} の部分をいじれば良い．簡単に解説すると
+ labelsep:
+「表n」部分とそれ以降のテキスト部分の間を何で区切るか．period(ピリオド)以外にもspace(スペース)，colon(コロン)，newline(改行)などがある． labelfont:
+「表n」部分のフォントをどうするか．bf(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合はfontを，テキスト部分のみ変えたい場合はtextfontを使う． justification:</description>
+    </item>
+    
+    <item>
+      <title>LaTeXでビジネス文書を書く</title>
+      <link>https://h1go.github.io/blog/2018/11/writing-japanese-business-documents-in-latex/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://h1go.github.io/blog/2018/11/writing-japanese-business-documents-in-latex/</guid>
+      <description>LaTeXでビジネス文章を書くためのテンプレート的な，ちょっとしたスタイルファイルを書いた1．
+スタイルファイルの詳細やダウンロード等はGitHubへ．
+\documentclass[uplatex,a4j,fleqn,12pt]{jsarticle} \usepackage[top=35.01truemm,bottom=30truemm,left=30truemm,right=30truemm]{geometry} \usepackage{jbusinessdoc} %\documentnumber{文章番号第42号} \date{平成yy年mm月dd日} \destination{○○株式会社\\ご担当者様} \author{××株式会社\\ほげほげ} \title{ほげほげのご案内} \begin{document} \maketitle \begin{haikei} 時下ますますご清栄のこととお喜び申し上げます。 平素はひとかたならぬお引き立てを賜り、厚く御礼申し上げます。 さて、このたび弊社ではほげほげがふがふがとなりました。 つきましては、ほげほげの程よろしくお願い申し上げます。 \end{haikei} \begin{kigaki} \begin{itemize} \item 日時：いつか \item 会場：どっか \end{itemize} \end{kigaki} \end{document} こんな感じでLaTeX文書を書くと
+ビジネス文章っぽい こんな感じで出力される．
+「こういうビジネス文書を作りたいけどWordは使いたくない，できればLaTeXで書きたい」って人は意外と多いんじゃないかと思ってググったけど，それらしいノウハウがあまり出てこなかったので．
+  正確に言えば以前必要に迫られて書いたものを，せっかく始めたブログのネタにでもと思いスタイルファイルとして独立させた． &amp;#x21a9;&amp;#xfe0e;
+   </description>
+    </item>
+    
+  </channel>
+</rss>

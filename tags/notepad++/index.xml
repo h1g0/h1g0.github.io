@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>notepad&#43;&#43; on Cluttered Room</title>
+    <link>https://h1go.github.io/tags/notepad&#43;&#43;/</link>
+    <description>Recent content in notepad&#43;&#43; on Cluttered Room</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 22 Jun 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://h1go.github.io/tags/notepad++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Notepad&#43;&#43;の64bit版でメモ帳を置き換える際の注意点</title>
+      <link>https://h1go.github.io/blog/2019/06/replace-notepad-to-npp/</link>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://h1go.github.io/blog/2019/06/replace-notepad-to-npp/</guid>
+      <description>tepad++はv7.5.9より、Windows標準のメモ帳を「置き換える」((正確にはメモ帳を起動しようとするとメモ帳の代わりにNotepad++が立ち上がる))ことが可能になっている。
+参考：
+「メモ帳」として起動できるようになった無料テキストエディター「Notepad++」v7.5.9／「メモ帳」に関連付けられたファイルを「Notepad++」で開くことが可能 https://t.co/anniPJyZQl pic.twitter.com/99n3kwKoMK
+&amp;mdash; 窓の杜 (@madonomori) October 16, 2018  しかし、公式サイトやそれを継承した窓の杜の記事の方法は32bit版のものであり、64bit版を使用している場合は失敗してしまう1ので注意が必要
+具体的には、公式サイトで紹介されている
+reg add &amp;quot;HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&amp;quot; /v &amp;quot;Debugger&amp;quot; /t REG_SZ /d &amp;quot;\&amp;quot;%ProgramFiles(x86)%\Notepad++\notepad++.exe\&amp;quot; -notepadStyleCmdline -z&amp;quot; /f では、Notepad++のインストール先として32bit版のそれであるProgram Files(x86)フォルダが指定されている。それを64bit版に書き換えて
+reg add &amp;quot;HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&amp;quot; /v &amp;quot;Debugger&amp;quot; /t REG_SZ /d &amp;quot;\&amp;quot;%ProgramFiles%\Notepad++\notepad++.exe\&amp;quot; -notepadStyleCmdline -z&amp;quot; /f とする。 そして上記コマンドを管理者権限のコマンドプロンプトで実行すれば、無事置き換えが完了する。
+  メモ帳を起動しようとするとnotepad++.exeが見つからない旨のエラーが発生する。 &amp;#x21a9;&amp;#xfe0e;
+   </description>
+    </item>
+    
+  </channel>
+</rss>

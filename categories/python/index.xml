@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Cluttered Room</title>
+    <link>https://h1go.github.io/categories/python/</link>
+    <description>Recent content in Python on Cluttered Room</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 06 Oct 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://h1go.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Python] filecmpの引数shallowの細かい仕様について</title>
+      <link>https://h1go.github.io/blog/2019/10/python-filecmp-shallow/</link>
+      <pubDate>Sun, 06 Oct 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://h1go.github.io/blog/2019/10/python-filecmp-shallow/</guid>
+      <description>Pythonのfilecmpは引数にshallow = True を付ける（デフォルト）と「浅い」ファイル比較を行う。この際に何を参照して「同じファイル」と判断するのか調べる必要があったのでメモ。 なお、この記事はPython 3.7 時点での情報である。
+結論から言うと、ファイルサイズと最終更新日時が同一ならば同一のファイルとして判断される。
+解説として、「浅い」ファイル比較はファイルごとにシグネチャを生成し、それらが同じならば同じファイルであると判断する。そしてその際の生成コードが
+_sig(st): return (stat.S_IFMT(st.st_mode), st.st_size, st.st_mtime) となっている1。
+引数のstはos.stat_resultオブジェクトであるので、st_mode、 st_size、 st_mtimeの3つから同じファイルか判断していることになる。
+このうち、 st_modeはファイルタイプとファイルモード((ディレクトリか？ファイルか？シンボリックリンクか？etc.))の判定であるので、実質的にはst_size、つまりファイルサイズと、st_mtime、つまり最終更新日時で判定していることになる。
+なお、shallow = Falseとして「深い」ファイル比較を行うと、文字通り バイト単位でファイルの同一性をチェックする。当然ながら「浅い」ファイル比較よりも処理に時間がかかるが、より確実性を求める場合はこちらを使用することも検討すべきかもしれない。
+  https://github.com/python/cpython/blob/3.7/Lib/filecmp.py &amp;#x21a9;&amp;#xfe0e;
+   </description>
+    </item>
+    
+  </channel>
+</rss>

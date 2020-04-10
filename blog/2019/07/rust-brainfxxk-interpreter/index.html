@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+<title>RustでBrainf*ckインタプリタを書いた - Cluttered Room</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="generator" content="Hugo 0.68.3" /><meta itemprop="name" content="RustでBrainf*ckインタプリタを書いた">
+<meta itemprop="description" content="最近Rustを学び始めた。そこで、RustでHello, world!プログラムを書いた。
+といっても、普通にprintln!(&quot;Hello, world!&quot;);するだけでは何も面白くない。
+なのでBrainf*ckで、インタプリタと一緒に。
+コードは（今のところ）こんな感じ。そしてideoneによる実行結果はこんな感じ。ちなみにGithubにも上げてある。
+use std::collections::VecDeque; use std::collections::HashMap; enum Token { Inc, Dec, IncPtr, DecPtr, StartLoop, EndLoop, Input, Output, } impl Token{ fn tokenize(c:char) -&gt; Option&lt;Token&gt;{ match c{ &#39;&#43;&#39; =&gt; Some(Token::Inc), &#39;-&#39; =&gt; Some(Token::Dec), &#39;&gt;&#39; =&gt; Some(Token::IncPtr), &#39;&lt;&#39; =&gt; Some(Token::DecPtr), &#39;[&#39; =&gt; Some(Token::StartLoop), &#39;]&#39; =&gt; Some(Token::EndLoop), &#39;,&#39; =&gt; Some(Token::Input), &#39;.&#39; =&gt; Some(Token::Output), _ =&gt; None, } } fn tokenize_from_array(char_array: Vec&lt;char&gt;)-&gt;Vec&lt;Token&gt;{ let mut token_array: Vec&lt;Token&gt; = Vec::new(); for token in char_array.">
+<meta itemprop="datePublished" content="2019-07-21T00:00:00&#43;09:00" />
+<meta itemprop="dateModified" content="2019-07-21T00:00:00&#43;09:00" />
+<meta itemprop="wordCount" content="593">
+
+
+
+<meta itemprop="keywords" content="Rust," /><meta property="og:title" content="RustでBrainf*ckインタプリタを書いた" />
+<meta property="og:description" content="最近Rustを学び始めた。そこで、RustでHello, world!プログラムを書いた。
+といっても、普通にprintln!(&quot;Hello, world!&quot;);するだけでは何も面白くない。
+なのでBrainf*ckで、インタプリタと一緒に。
+コードは（今のところ）こんな感じ。そしてideoneによる実行結果はこんな感じ。ちなみにGithubにも上げてある。
+use std::collections::VecDeque; use std::collections::HashMap; enum Token { Inc, Dec, IncPtr, DecPtr, StartLoop, EndLoop, Input, Output, } impl Token{ fn tokenize(c:char) -&gt; Option&lt;Token&gt;{ match c{ &#39;&#43;&#39; =&gt; Some(Token::Inc), &#39;-&#39; =&gt; Some(Token::Dec), &#39;&gt;&#39; =&gt; Some(Token::IncPtr), &#39;&lt;&#39; =&gt; Some(Token::DecPtr), &#39;[&#39; =&gt; Some(Token::StartLoop), &#39;]&#39; =&gt; Some(Token::EndLoop), &#39;,&#39; =&gt; Some(Token::Input), &#39;.&#39; =&gt; Some(Token::Output), _ =&gt; None, } } fn tokenize_from_array(char_array: Vec&lt;char&gt;)-&gt;Vec&lt;Token&gt;{ let mut token_array: Vec&lt;Token&gt; = Vec::new(); for token in char_array." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://h1go.github.io/blog/2019/07/rust-brainfxxk-interpreter/" />
+<meta property="article:published_time" content="2019-07-21T00:00:00+09:00" />
+<meta property="article:modified_time" content="2019-07-21T00:00:00+09:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RustでBrainf*ckインタプリタを書いた"/>
+<meta name="twitter:description" content="最近Rustを学び始めた。そこで、RustでHello, world!プログラムを書いた。
+といっても、普通にprintln!(&quot;Hello, world!&quot;);するだけでは何も面白くない。
+なのでBrainf*ckで、インタプリタと一緒に。
+コードは（今のところ）こんな感じ。そしてideoneによる実行結果はこんな感じ。ちなみにGithubにも上げてある。
+use std::collections::VecDeque; use std::collections::HashMap; enum Token { Inc, Dec, IncPtr, DecPtr, StartLoop, EndLoop, Input, Output, } impl Token{ fn tokenize(c:char) -&gt; Option&lt;Token&gt;{ match c{ &#39;&#43;&#39; =&gt; Some(Token::Inc), &#39;-&#39; =&gt; Some(Token::Dec), &#39;&gt;&#39; =&gt; Some(Token::IncPtr), &#39;&lt;&#39; =&gt; Some(Token::DecPtr), &#39;[&#39; =&gt; Some(Token::StartLoop), &#39;]&#39; =&gt; Some(Token::EndLoop), &#39;,&#39; =&gt; Some(Token::Input), &#39;.&#39; =&gt; Some(Token::Output), _ =&gt; None, } } fn tokenize_from_array(char_array: Vec&lt;char&gt;)-&gt;Vec&lt;Token&gt;{ let mut token_array: Vec&lt;Token&gt; = Vec::new(); for token in char_array."/>
+<link rel="stylesheet" href="/css/bundle.min.890f30b8b199a3d390afae9cf9f69d7a932a6a7d91fc3a3b9e5b9d780c334432.css" integrity="sha256-iQ8wuLGZo9OQr66c&#43;fadepMqan2R/Do7nludeAwzRDI=">
+        <link rel="stylesheet" href="/css/add-on.css">
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          Cluttered Room
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        
+          
+          
+            <a href="/" class="link"><i class='fa fa-home'></i> Home</a>
+          
+        
+      
+        
+          
+          
+            <a href="/about/" class="link"><i class='far fa-id-card'></i> About</a>
+          
+        
+      
+        
+          
+          
+            <a href="/blog/" class="link"><i class='far fa-newspaper'></i> Blog</a>
+          
+        
+      
+        
+          
+          
+            <a href="/categories/" class="link"><i class='fas fa-sitemap'></i> Categories</a>
+          
+        
+      
+        
+          
+          
+            <a href="/contact/" class="link"><i class='far fa-envelope'></i> Contact</a>
+          
+        
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Rust%e3%81%a7Brainf%2ack%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%97%e3%83%aa%e3%82%bf%e3%82%92%e6%9b%b8%e3%81%84%e3%81%9f&amp;url=https%3a%2f%2fh1go.github.io%2fblog%2f2019%2f07%2frust-brainfxxk-interpreter%2f" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fh1go.github.io%2fblog%2f2019%2f07%2frust-brainfxxk-interpreter%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fh1go.github.io%2fblog%2f2019%2f07%2frust-brainfxxk-interpreter%2f&amp;title=Rust%e3%81%a7Brainf%2ack%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%97%e3%83%aa%e3%82%bf%e3%82%92%e6%9b%b8%e3%81%84%e3%81%9f" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fh1go.github.io%2fblog%2f2019%2f07%2frust-brainfxxk-interpreter%2f" target="_blank" class="share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="128" alt="Cluttered Room" /></a>
+  <header>
+    <h1>Cluttered Room</h1>
+  </header>
+  <main>
+    <p>雑然とした部屋</p>
+  </main>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+      <h2><a href="/blog/2019/07/rust-brainfxxk-interpreter/">RustでBrainf*ckインタプリタを書いた</a></h2>
+    
+    
+  </div>
+  <div class="meta">
+    <time class="published" datetime="2019-07-21 00:00:00 &#43;0900 JST">
+      2019-07-21
+    </time>
+    <span class="author"></span>
+    
+      <p>3 分で読めます</p>
+    
+  </div>
+</header>
+
+  <section id="socnet-share">
+    
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Rust%e3%81%a7Brainf%2ack%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%97%e3%83%aa%e3%82%bf%e3%82%92%e6%9b%b8%e3%81%84%e3%81%9f&amp;url=https%3a%2f%2fh1go.github.io%2fblog%2f2019%2f07%2frust-brainfxxk-interpreter%2f" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fh1go.github.io%2fblog%2f2019%2f07%2frust-brainfxxk-interpreter%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fh1go.github.io%2fblog%2f2019%2f07%2frust-brainfxxk-interpreter%2f&amp;title=Rust%e3%81%a7Brainf%2ack%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%97%e3%83%aa%e3%82%bf%e3%82%92%e6%9b%b8%e3%81%84%e3%81%9f" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fh1go.github.io%2fblog%2f2019%2f07%2frust-brainfxxk-interpreter%2f" target="_blank" class="share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+
+  <div class="content">
+    <p>最近<a href="https://www.rust-lang.org/">Rust</a>を学び始めた。そこで、Rustで<code>Hello, world!</code>プログラムを書いた。<br>
+といっても、普通に<code>println!(&quot;Hello, world!&quot;);</code>するだけでは何も面白くない。<br>
+なので<a href="https://ja.wikipedia.org/wiki/Brainfuck">Brainf*ck</a>で、インタプリタと一緒に。</p>
+<p>コードは（今のところ）こんな感じ。そしてideoneによる実行結果は<a href="https://ideone.com/C2luoc">こんな感じ</a>。ちなみにGithubにも<a href="https://github.com/h1g0/rust-brainfxxk-interpreter/">上げてある</a>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">use</span> std::collections::VecDeque;
+<span style="color:#66d9ef">use</span> std::collections::HashMap;
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Token</span> {
+    Inc,
+    Dec,
+    IncPtr,
+    DecPtr,
+    StartLoop,
+    EndLoop,
+    Input,
+    Output,
+}
+<span style="color:#66d9ef">impl</span> Token{
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">tokenize</span>(c:<span style="color:#a6e22e">char</span>) -&gt; Option<span style="color:#f92672">&lt;</span>Token<span style="color:#f92672">&gt;</span>{
+        <span style="color:#66d9ef">match</span> c{
+            <span style="color:#e6db74">&#39;+&#39;</span> <span style="color:#f92672">=&gt;</span> Some(Token::Inc),
+            <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#f92672">=&gt;</span> Some(Token::Dec),
+            <span style="color:#e6db74">&#39;&gt;&#39;</span> <span style="color:#f92672">=&gt;</span> Some(Token::IncPtr),
+            <span style="color:#e6db74">&#39;&lt;&#39;</span> <span style="color:#f92672">=&gt;</span> Some(Token::DecPtr),
+            <span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#f92672">=&gt;</span> Some(Token::StartLoop),
+            <span style="color:#e6db74">&#39;]&#39;</span> <span style="color:#f92672">=&gt;</span> Some(Token::EndLoop),
+            <span style="color:#e6db74">&#39;,&#39;</span> <span style="color:#f92672">=&gt;</span> Some(Token::Input),
+            <span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">=&gt;</span> Some(Token::Output),
+             _  <span style="color:#f92672">=&gt;</span> None,
+        }
+    }
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">tokenize_from_array</span>(char_array: Vec<span style="color:#f92672">&lt;</span>char<span style="color:#f92672">&gt;</span>)-&gt;Vec<span style="color:#f92672">&lt;</span>Token<span style="color:#f92672">&gt;</span>{
+        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> token_array: Vec<span style="color:#f92672">&lt;</span>Token<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> Vec::new();
+        <span style="color:#66d9ef">for</span> token <span style="color:#66d9ef">in</span> char_array.iter().filter_map(<span style="color:#f92672">|</span>c<span style="color:#f92672">|</span> Token::tokenize(<span style="color:#f92672">*</span>c)){
+            token_array.push(token);
+        }
+        <span style="color:#66d9ef">return</span> token_array;
+    }
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">get_loop_token_ptr</span>(token_array:<span style="color:#66d9ef">&amp;</span>Vec<span style="color:#f92672">&lt;</span>Token<span style="color:#f92672">&gt;</span>)-&gt;
+                         (HashMap<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span>,<span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>,HashMap<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span>,<span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>){
+        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> start_end_map : <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span>,<span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> HashMap::new();
+        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> end_start_map : <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span>,<span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> HashMap::new();
+        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> start_ptr_stack : Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> Vec::new();
+        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> ptr : <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">for</span> token <span style="color:#66d9ef">in</span> token_array{
+            <span style="color:#66d9ef">match</span> <span style="color:#f92672">*</span>token{
+                Token::StartLoop <span style="color:#f92672">=&gt;</span> {
+                    start_ptr_stack.push(ptr);
+                },
+                Token::EndLoop <span style="color:#f92672">=&gt;</span> {
+                    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(start_ptr) <span style="color:#f92672">=</span> start_ptr_stack.pop(){
+                        start_end_map.insert(start_ptr, ptr);
+                        end_start_map.insert(ptr, start_ptr);
+                    }<span style="color:#66d9ef">else</span>{
+                        panic<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Too many &#39;]&#39; tokens detected!&#34;</span>);
+                    }
+                },
+                _ <span style="color:#f92672">=&gt;</span> {}
+            }
+            ptr<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>;
+        }
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span> start_ptr_stack.is_empty(){
+            panic<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Too many &#39;[&#39; tokens detected!&#34;</span>);
+        }
+        <span style="color:#66d9ef">return</span> (start_end_map, end_start_map);
+    }
+    <span style="color:#75715e">//fn for token &#39;+&#39;.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">inc_mem_val</span>(memory :<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>, memory_ptr:<span style="color:#66d9ef">u16</span>){
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(val) <span style="color:#f92672">=</span> memory.get_mut(memory_ptr <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>) {
+            <span style="color:#f92672">*</span>val <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+        }
+    }
+    <span style="color:#75715e">//fn for token &#39;-&#39;.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">dec_mem_val</span>(memory :<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>, memory_ptr:<span style="color:#66d9ef">u16</span>){
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(val) <span style="color:#f92672">=</span> memory.get_mut(memory_ptr <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>) {
+            <span style="color:#f92672">*</span>val <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>;
+        }
+    }
+    <span style="color:#75715e">//fn for token &#39;&gt;&#39;.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">inc_mem_ptr</span>(memory_ptr:<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> <span style="color:#66d9ef">u16</span>){
+        <span style="color:#f92672">*</span>memory_ptr <span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>;
+    }
+    <span style="color:#75715e">//fn for token &#39;&lt;&#39;.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">dec_mem_ptr</span>(memory_ptr:<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> <span style="color:#66d9ef">u16</span>){
+        <span style="color:#f92672">*</span>memory_ptr <span style="color:#f92672">-=</span><span style="color:#ae81ff">1</span>;
+    }
+    <span style="color:#75715e">//fn for token &#39;[&#39;.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">jump_loop_end_token_if_mem_0</span>(mem_val:Option<span style="color:#f92672">&lt;&amp;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>, 
+                                    loop_start_end_token_ptr_map:<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span>,<span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>, 
+                                    token_ptr : <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> <span style="color:#66d9ef">u32</span>){
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(val) <span style="color:#f92672">=</span> mem_val{
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">*</span>val <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>{<span style="color:#66d9ef">return</span>;}
+        }<span style="color:#66d9ef">else</span>{<span style="color:#66d9ef">return</span>;}
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(end_ptr) <span style="color:#f92672">=</span> loop_start_end_token_ptr_map.get(token_ptr){
+            <span style="color:#f92672">*</span>token_ptr <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>end_ptr;
+        }<span style="color:#66d9ef">else</span>{
+            panic<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;no pair &#39;]&#39; token found.&#34;</span>);
+        }
+    }
+    <span style="color:#75715e">//fn for token &#39;]&#39;.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">jump_loop_start_token_if_mem_not_0</span>(mem_val:Option<span style="color:#f92672">&lt;&amp;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>, 
+                                          loop_end_start_token_ptr_map:<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span>,<span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>, 
+                                          token_ptr : <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> <span style="color:#66d9ef">u32</span>){
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(val) <span style="color:#f92672">=</span> mem_val{
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">*</span>val <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>{<span style="color:#66d9ef">return</span>;}
+        }<span style="color:#66d9ef">else</span>{<span style="color:#66d9ef">return</span>;}
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(start_ptr) <span style="color:#f92672">=</span> loop_end_start_token_ptr_map.get(token_ptr){
+            <span style="color:#f92672">*</span>token_ptr <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>start_ptr;
+        }<span style="color:#66d9ef">else</span>{
+            panic<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;no pair &#39;[&#39; token found.&#34;</span>);
+        }
+    }
+    <span style="color:#75715e">//fn for token &#39;,&#39;.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">put_char_from_input_to_mem</span>(input_char_array:<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> VecDeque<span style="color:#f92672">&lt;</span>char<span style="color:#f92672">&gt;</span>,
+                                  memory :<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>, memory_ptr:<span style="color:#66d9ef">u16</span>){
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(val) <span style="color:#f92672">=</span> memory.get_mut(memory_ptr <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>){
+            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(c) <span style="color:#f92672">=</span> input_char_array.pop_front() {
+                <span style="color:#f92672">*</span>val <span style="color:#f92672">=</span> <span style="color:#66d9ef">u32</span>::from(c);
+            }
+        }
+    }
+    <span style="color:#75715e">//fn for token &#39;.&#39;.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">join_output_char_to_str</span>(output_char:Option<span style="color:#f92672">&lt;</span>char<span style="color:#f92672">&gt;</span>, output_str:<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> String){
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(c) <span style="color:#f92672">=</span> output_char{
+            output_str.push(c);
+        }
+    }
+}
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">BfInterpreter</span>{
+    token_array : Vec<span style="color:#f92672">&lt;</span>Token<span style="color:#f92672">&gt;</span>,
+    token_ptr : <span style="color:#66d9ef">u32</span>,
+    memory : Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>,
+    memory_ptr: <span style="color:#66d9ef">u16</span>,
+    input : <span style="color:#a6e22e">VecDeque</span><span style="color:#f92672">&lt;</span>char<span style="color:#f92672">&gt;</span>,
+    output : String,
+    loop_start_end_token_ptr_map : <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span>,<span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>,
+    loop_end_start_token_ptr_map : <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span>,<span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>,
+}
+<span style="color:#66d9ef">impl</span> BfInterpreter{
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">init</span>(src: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>, input: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) -&gt; <span style="color:#a6e22e">BfInterpreter</span> {
+        <span style="color:#66d9ef">let</span> ta <span style="color:#f92672">=</span> Token::tokenize_from_array(src.chars().collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span>char<span style="color:#f92672">&gt;&gt;</span>());
+        <span style="color:#66d9ef">let</span> (lsetpm,lestpm) <span style="color:#f92672">=</span> Token::get_loop_token_ptr(<span style="color:#f92672">&amp;</span>ta);
+        BfInterpreter{
+            token_array : <span style="color:#a6e22e">ta</span>,
+            token_ptr : <span style="color:#ae81ff">0</span>,
+            <span style="color:#75715e">//Brainf*ck&#39;s number of memory cell is defined to be larger than 30,000.
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">//So this program should reserve size of &#39;u16::max_value()&#39;, 
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">//which is expected to be 2^16 - 1 = 65,535.
+</span><span style="color:#75715e"></span>            memory : <span style="color:#a6e22e">vec</span><span style="color:#f92672">!</span>[<span style="color:#ae81ff">0</span> ; <span style="color:#66d9ef">u16</span>::max_value() <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>],
+            memory_ptr : <span style="color:#ae81ff">0</span>,
+            input : <span style="color:#a6e22e">input</span>.chars().collect(),
+            output : String::from(<span style="color:#e6db74">&#34;&#34;</span>),
+            loop_start_end_token_ptr_map : <span style="color:#a6e22e">lsetpm</span>,
+            loop_end_start_token_ptr_map : <span style="color:#a6e22e">lestpm</span>,
+        }
+    }
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">exec</span>(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self){
+        <span style="color:#66d9ef">let</span> token_array <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>self.token_array;
+        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">let</span> Some(token) <span style="color:#f92672">=</span> token_array.get(self.token_ptr <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>){
+            <span style="color:#66d9ef">match</span> <span style="color:#f92672">*</span>token{
+                Token::Inc <span style="color:#f92672">=&gt;</span> {
+                    Token::inc_mem_val(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self.memory, self.memory_ptr);
+                }
+                Token::Dec <span style="color:#f92672">=&gt;</span> {
+                    Token::dec_mem_val(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self.memory, self.memory_ptr);
+                }
+                Token::IncPtr <span style="color:#f92672">=&gt;</span> {
+                    Token::inc_mem_ptr(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self.memory_ptr);
+                }
+                Token::DecPtr <span style="color:#f92672">=&gt;</span> {
+                    Token::dec_mem_ptr(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self.memory_ptr);
+                }
+                Token::StartLoop <span style="color:#f92672">=&gt;</span> {
+                    Token::jump_loop_end_token_if_mem_0(
+                        self.memory.get(self.memory_ptr <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>),
+                        <span style="color:#f92672">&amp;</span>self.loop_start_end_token_ptr_map,
+                        <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self.token_ptr
+                        );
+                }
+                Token::EndLoop <span style="color:#f92672">=&gt;</span> {
+                    Token::jump_loop_start_token_if_mem_not_0(
+                        self.memory.get(self.memory_ptr <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>),
+                        <span style="color:#f92672">&amp;</span>self.loop_end_start_token_ptr_map,
+                        <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self.token_ptr
+                        );
+                }
+                Token::Input <span style="color:#f92672">=&gt;</span> {
+                    Token::put_char_from_input_to_mem(
+                        <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self.input, 
+                        <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self.memory, self.memory_ptr
+                        );
+                }
+                Token::Output <span style="color:#f92672">=&gt;</span> {
+                    Token::join_output_char_to_str(
+                        self.memory.get(self.memory_ptr <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>)
+                        .and_then(<span style="color:#f92672">|</span>i<span style="color:#f92672">|</span> std::char::from_u32(<span style="color:#f92672">*</span>i)),
+                        <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self.output);
+                }
+            }
+            self.token_ptr <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+        }
+    }
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">output</span>(<span style="color:#f92672">&amp;</span>self)-&gt;<span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>{
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span>self.output;
+    }
+}
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span> (){
+    <span style="color:#66d9ef">let</span> src: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span> <span style="color:#f92672">=</span> 
+        <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#f92672">+++++++++</span>[<span style="color:#f92672">&gt;++++++++&gt;+++++++++++&gt;+++++&lt;&lt;&lt;-</span>]<span style="color:#f92672">&gt;</span>.<span style="color:#f92672">&gt;++</span>.<span style="color:#f92672">+++++++</span>..<span style="color:#f92672">+++</span>.<span style="color:#f92672">&gt;-</span>.
+        <span style="color:#f92672">------------</span>.<span style="color:#f92672">&lt;++++++++</span>.<span style="color:#f92672">--------</span>.<span style="color:#f92672">+++</span>.<span style="color:#f92672">------</span>.<span style="color:#f92672">--------</span>.<span style="color:#f92672">&gt;+</span>.<span style="color:#960050;background-color:#1e0010">&#34;</span>;
+    <span style="color:#66d9ef">let</span> input : <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span>  bf <span style="color:#f92672">=</span> BfInterpreter::init(src, input);
+    bf.exec();
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>,bf.output());
+}
+</code></pre></div><p>このコードの実行結果はもちろん</p>
+<pre><code>Hello, world!
+</code></pre><p>となる。</p>
+<p>Rustでこの「<code>Hello, world!</code>プログラム」を書いた感想として、</p>
+<ol>
+<li>Rustで難解と言われる所有権やライフタイム、借用などは、横着せずにきちんと設計を考えればそれほど問題にはならない。</li>
+<li>Rustはコンパイラが出すエラーメッセージが分かりやすいので、コンパイルエラーの修復はむしろ他の言語よりも楽であることが多かった。</li>
+<li>RustはC++をよりモダンで安全に<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>した感じの言語だと感じた。その点でC++に多少なりとも慣れ親しんだプログラマ<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>に向いている言語だと感じた。</li>
+<li>結論として、Rustは書いていて愉しい言語であった。</li>
+</ol>
+<p>なお、上記のコードではそこから以下の点で高速化を図っている。</p>
+<ol>
+<li>Brainf*ckコード読み込み時のトークナイズ</li>
+<li>ループ位置のメモ化<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>そして少し過保護に <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>例えば私のような <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>上記トークナイズ処理時、<code>[</code>トークンの位置と対応する<code>]</code>トークンの位置をハッシュテーブルに載せる。そうすることで実行時に対応するループ位置へのジャンプが高速化できることが期待される <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://h1go.github.io/categories/rust">Rust</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    
+    
+      <li class="tags">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://h1go.github.io/tags/rust">Rust</a></li>
+          
+        </ul>
+      </li>
+    
+  
+</ul>
+
+  </footer>
+</article>
+
+
+<div class="pagination">
+  
+    <a href="/blog/2019/06/replace-notepad-to-npp/" class="button"><div class="previous"><div>Notepad&#43;&#43;の64bit版でメモ帳を置き換える際の注意点</div></div></a>
+  
+  
+    <a href="/blog/2019/07/rustup-inst-exe-failed-to-install/" class="button"><div class="next"><div>[Rust] rustup-inst.exeでの新規インストール時に「アクセスが拒否されました。(os error 5)」が出る時の対処法</div></div></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>最近の投稿</h1>
+      </header>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/2020/04/test/">Hello, Hugo!</a></h1>
+          <time class="published" datetime="">2020-04-09</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/2019/10/python-filecmp-shallow/">[Python] filecmpの引数shallowの細かい仕様について</a></h1>
+          <time class="published" datetime="">2019-10-06</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/2019/07/rustup-inst-exe-failed-to-install/">[Rust] rustup-inst.exeでの新規インストール時に「アクセスが拒否されました。(os error 5)」が出る時の対処法</a></h1>
+          <time class="published" datetime="">2019-07-28</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/2019/07/rust-brainfxxk-interpreter/">RustでBrainf*ckインタプリタを書いた</a></h1>
+          <time class="published" datetime="">2019-07-21</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/2019/06/replace-notepad-to-npp/">Notepad&#43;&#43;の64bit版でメモ帳を置き換える際の注意点</a></h1>
+          <time class="published" datetime="">2019-06-22</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">続きを見る</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">カテゴリー</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/javascript/">javascript<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/latex/">latex<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/misc/">misc<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/others/">others<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/python/">python<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/rust/">rust<span class="count">2</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2020
+      
+        Cluttered Room
+      
+    . <br>
+    Theme: <a href='https://github.com/pacollins/hugo-future-imperfect-slim' target='_blank' rel='noopener'>Hugo Future Imperfect Slim</a><br>A <a href='https://html5up.net/future-imperfect' target='_blank' rel='noopener'>HTML5 UP port</a> | Powered by <a href='https://gohugo.io/' title='0.68.3' target='_blank' rel='noopener'>Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="/js/bundle.min.e0c399b948d3cf5c3a5e3badb94023d0b064a19ac39fd8cd79fb9f57fa4d1091.js" integrity="sha256-4MOZuUjTz1w6XjutuUAj0LBkoZrDn9jNefufV/pNEJE="></script>
+    <script src="/js/add-on.js"></script>
+    </div>
+  </body>
+</html>
