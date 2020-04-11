@@ -21,7 +21,7 @@
 なお、インストールしようとしたrustupのバージョンは
 rustup 1.18.3 (435397f48 2019-05-22) である。
 解決法 とりあえずOSの再起動等を試してみても効果がなかったのでググってみたところ、githubのプロジェクトページに
-fresh install fails on Windows: &amp;ldquo;error: could not rename component file from &amp;lsquo;&amp;hellip; ust-docs\share/doc/rust/html&amp;rsquo; &amp;hellip;&amp;quot;
+fresh install fails on Windows: &amp;amp;ldquo;error: could not rename component file from &amp;amp;lsquo;&amp;amp;hellip; ust-docs\share/doc/rust/html&amp;amp;rsquo; &amp;amp;hellip;&amp;amp;quot;
 というIssueが上がっているのを見つけた。読んでみたところ、自分の問題と同じであった。
 この記事を参考にアンチウィルスソフト（自分の場合はAvira）のリアルタイムプロテクションを一時的に切ってrustup-inst.exeを再試行したところ、今度は正常にインストールできた。
 以前rustup-inst.exeを使って同環境でセットアップを行った際には問題は発生しなかったので、rustup-inst.exeのアップデートによるものかAviraの更新に起因する問題なのかもしれない。</description>
