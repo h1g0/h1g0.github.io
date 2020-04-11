@@ -57,7 +57,17 @@ code {
 .post>header div {
   padding: .5em 1em;
 }
-.post>header .meta .author, .post>header .meta .format, .post>header .meta .format {
+.post>header p {
+  margin: 0 0 0;
+}
+.post>header .meta .published {
+  font-family: raleway,Helvetica,sans-serif;
+  font-size: 1em;
+  font-weight: 800;
+  letter-spacing: .25em;
+  text-transform: none;
+}
+.post>header .meta p, .post>header .meta .author, .post>header .meta .format, .post>header .meta .format {
   font-family: 'Noto Sans JP',Helvetica,sans-serif;
   font-size: .8em;
   letter-spacing: .25em;
@@ -66,4 +76,12 @@ code {
   font-family: 'Noto Sans JP',Helvetica,sans-serif;
   text-transform: none;
   letter-spacing: none;
+  margin: 0.5em auto;
+  font-size: .8em;
+}
+
+.post>footer .stats li ul li a {
+  overflow: visible;
+  white-space: nowrap;
+  text-transform: none !important;
 }
