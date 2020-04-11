@@ -18,34 +18,10 @@ code {
   border: solid 1px rgba(160,160,160,.3);
   font-family: 'Roboto Mono', monospace;
   border-radius: 3px;
-  background-color: #fafafa;
   font-size: .9em;
   margin: 0 .25em;
   padding: .2em .65em;
-  overflow-x: auto;
-}
-
-/* for block of numbers */
-.hljs-ln-numbers {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  text-align: center;
-  color: #ccc;
-  border-right: 1px solid #CCC;
-  vertical-align: top;
-  padding-right: 5px;
-
-  /* your custom style here */
-}
-
-/* for block of code */
-.hljs-ln-code {
-  padding-left: 10px;
+  overflow-x: clip !important;
 }
 
 .post>header {
@@ -75,7 +51,7 @@ code {
 .button{
   font-family: 'Noto Sans JP',Helvetica,sans-serif;
   text-transform: none;
-  letter-spacing: none;
+  letter-spacing: .1em;
   margin: 0.5em auto;
   font-size: .8em;
 }
