@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Cluttered Room</title>
-    <link>https://h1go.github.io/categories/</link>
+    <link>https://clutte.red/categories/</link>
     <description>Recent content in Categories on Cluttered Room</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 09 Apr 2020 00:12:59 +0900</lastBuildDate>
     
-	<atom:link href="https://h1go.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://clutte.red/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Misc</title>
-      <link>https://h1go.github.io/categories/misc/</link>
+      <link>https://clutte.red/categories/misc/</link>
       <pubDate>Thu, 09 Apr 2020 00:12:59 +0900</pubDate>
       
-      <guid>https://h1go.github.io/categories/misc/</guid>
+      <guid>https://clutte.red/categories/misc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://h1go.github.io/categories/python/</link>
+      <link>https://clutte.red/categories/python/</link>
       <pubDate>Sun, 06 Oct 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://h1go.github.io/categories/python/</guid>
+      <guid>https://clutte.red/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rust</title>
-      <link>https://h1go.github.io/categories/rust/</link>
+      <link>https://clutte.red/categories/rust/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://h1go.github.io/categories/rust/</guid>
+      <guid>https://clutte.red/categories/rust/</guid>
       <description></description>
     </item>
     
     <item>
       <title>others</title>
-      <link>https://h1go.github.io/categories/others/</link>
+      <link>https://clutte.red/categories/others/</link>
       <pubDate>Sat, 22 Jun 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://h1go.github.io/categories/others/</guid>
+      <guid>https://clutte.red/categories/others/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://h1go.github.io/categories/javascript/</link>
+      <link>https://clutte.red/categories/javascript/</link>
       <pubDate>Thu, 20 Jun 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://h1go.github.io/categories/javascript/</guid>
+      <guid>https://clutte.red/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LaTeX</title>
-      <link>https://h1go.github.io/categories/latex/</link>
+      <link>https://clutte.red/categories/latex/</link>
       <pubDate>Sun, 11 Nov 2018 00:00:00 +0900</pubDate>
       
-      <guid>https://h1go.github.io/categories/latex/</guid>
+      <guid>https://clutte.red/categories/latex/</guid>
       <description></description>
     </item>
     

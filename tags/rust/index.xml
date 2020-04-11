@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rust on Cluttered Room</title>
-    <link>https://h1go.github.io/tags/rust/</link>
+    <link>https://clutte.red/tags/rust/</link>
     <description>Recent content in Rust on Cluttered Room</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="https://h1go.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://clutte.red/tags/rust/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[Rust] rustup-inst.exeでの新規インストール時に「アクセスが拒否されました。(os error 5)」が出る時の対処法</title>
-      <link>https://h1go.github.io/blog/2019/07/rustup-inst-exe-failed-to-install/</link>
+      <link>https://clutte.red/blog/2019/07/rustup-inst-exe-failed-to-install/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://h1go.github.io/blog/2019/07/rustup-inst-exe-failed-to-install/</guid>
+      <guid>https://clutte.red/blog/2019/07/rustup-inst-exe-failed-to-install/</guid>
       <description>Windows 10にrustup-inst.exeを使ってRust((厳密にはrustup))をインストールしようとしたところ、アクセスが拒否されました。(os error 5)のエラーが出てインストールできなかった。それを解決した際のメモ。
 なお、インストールしようとしたrustupのバージョンは
 rustup 1.18.3 (435397f48 2019-05-22) である。
@@ -29,10 +29,10 @@ fresh install fails on Windows: &amp;ldquo;error: could not rename component fil
     
     <item>
       <title>RustでBrainf*ckインタプリタを書いた</title>
-      <link>https://h1go.github.io/blog/2019/07/rust-brainfxxk-interpreter/</link>
+      <link>https://clutte.red/blog/2019/07/rust-brainfxxk-interpreter/</link>
       <pubDate>Sun, 21 Jul 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://h1go.github.io/blog/2019/07/rust-brainfxxk-interpreter/</guid>
+      <guid>https://clutte.red/blog/2019/07/rust-brainfxxk-interpreter/</guid>
       <description>最近Rustを学び始めた。そこで、RustでHello, world!プログラムを書いた。
 といっても、普通にprintln!(&amp;quot;Hello, world!&amp;quot;);するだけでは何も面白くない。
 なのでBrainf*ckで、インタプリタと一緒に。

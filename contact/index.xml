@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Contact on Cluttered Room</title>
-    <link>https://h1go.github.io/contact/</link>
+    <link>https://clutte.red/contact/</link>
     <description>Recent content in Contact on Cluttered Room</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     
-	<atom:link href="https://h1go.github.io/contact/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://clutte.red/contact/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

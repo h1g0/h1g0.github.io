@@ -3,44 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://h1go.github.io/en/categories/</loc>
+    <loc>https://clutte.red/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://h1go.github.io/categories/"
+                href="https://clutte.red/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://h1go.github.io/en/categories/"
+                href="https://clutte.red/en/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://h1go.github.io/en/</loc>
+    <loc>https://clutte.red/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://h1go.github.io/"
+                href="https://clutte.red/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://h1go.github.io/en/"
+                href="https://clutte.red/en/"
                 />
   </url>
   
   <url>
-    <loc>https://h1go.github.io/en/tags/</loc>
+    <loc>https://clutte.red/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://h1go.github.io/tags/"
+                href="https://clutte.red/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://h1go.github.io/en/tags/"
+                href="https://clutte.red/en/tags/"
                 />
   </url>
   

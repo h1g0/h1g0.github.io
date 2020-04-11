@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Cluttered Room</title>
-    <link>https://h1go.github.io/categories/javascript/</link>
+    <link>https://clutte.red/categories/javascript/</link>
     <description>Recent content in Javascript on Cluttered Room</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 20 Jun 2019 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="https://h1go.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://clutte.red/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JavascriptでYYYY/MM/DDみたいな形式で出力＋日本語の曜日を手軽に出力</title>
-      <link>https://h1go.github.io/blog/2019/06/javascript-formatted-date/</link>
+      <link>https://clutte.red/blog/2019/06/javascript-formatted-date/</link>
       <pubDate>Thu, 20 Jun 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://h1go.github.io/blog/2019/06/javascript-formatted-date/</guid>
+      <guid>https://clutte.red/blog/2019/06/javascript-formatted-date/</guid>
       <description>月や日付を2ケタに揃えて出したり、曜日を漢字1字で出したりする。 割とよく使うコードなのでsnippet的に。
 var today = new Date(); var year = (today.getFullYear()).toString(); var month = (&amp;#34;0&amp;#34; + (today.getMonth()+1).toString()).slice(-2); var date = (&amp;#34;0&amp;#34; + today.getDate().toString()).slice(-2); var dayOfWeek = &amp;#34;日月火水木金土&amp;#34;.slice(today.getDay(), today.getDay() + 1); console.log( year + &amp;#34;年&amp;#34; + month + &amp;#34;月&amp;#34; + date + &amp;#34;日（&amp;#34; + dayOfWeek + &amp;#34;）&amp;#34; ); のようにしてやると
 2019年06月20日（木） のように出力される。
