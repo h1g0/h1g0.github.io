@@ -4,3 +4,66 @@
   is an official part of the theme (ex. Pull Requests) should be included in main.css
   and follow the formatting and style given.
 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+h1, h2, h3, h4, h5, h6, body {
+  color: #3c3b3b;
+  font-family: 'Noto Sans JP', Helvetica, sans-serif;
+  letter-spacing: 0em !important;
+  line-height: 1.7;
+  text-transform: none !important;
+}
+
+code {
+  border: solid 1px rgba(160,160,160,.3);
+  font-family: 'Roboto Mono', monospace;
+  border-radius: 3px;
+  background-color: #fafafa;
+  font-size: .9em;
+  margin: 0 .25em;
+  padding: .2em .65em;
+  overflow-x: auto;
+}
+
+/* for block of numbers */
+.hljs-ln-numbers {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  text-align: center;
+  color: #ccc;
+  border-right: 1px solid #CCC;
+  vertical-align: top;
+  padding-right: 5px;
+
+  /* your custom style here */
+}
+
+/* for block of code */
+.hljs-ln-code {
+  padding-left: 10px;
+}
+
+.post>header {
+  border-bottom: solid 1px rgba(160,160,160,.3);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  word-break: break-word;
+}
+.post>header div {
+  padding: .5em 1em;
+}
+.post>header .meta .author, .post>header .meta .format, .post>header .meta .format {
+  font-family: 'Noto Sans JP',Helvetica,sans-serif;
+  font-size: .8em;
+  letter-spacing: .25em;
+}
+.button{
+  font-family: 'Noto Sans JP',Helvetica,sans-serif;
+  text-transform: none;
+  letter-spacing: none;
+}

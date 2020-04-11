@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://h1go.github.io/about/</loc>
-    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://h1go.github.io/</loc>
     <lastmod>2020-04-09T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -20,6 +15,11 @@
                 hreflang="ja"
                 href="https://h1go.github.io/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://h1go.github.io/about/</loc>
+    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -178,7 +178,7 @@
   </url>
   
   <url>
-    <loc>https://h1go.github.io/contact/_index.br/</loc>
+    <loc>https://h1go.github.io/contact/</loc>
   </url>
   
 </urlset>

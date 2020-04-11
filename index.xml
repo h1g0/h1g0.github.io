@@ -163,14 +163,5 @@ pdfpagesパッケージを使ってスライドのPDF（下記のコードでは
 面白ドメインを探していたら「clutte.red」（cluttered = 雑然とした・散らかった）というドメインを取ってしまったのと、ちょっとした知見等を誰かのために共有する場所があれば良いなあと以前から思っていたので。</description>
     </item>
     
-    <item>
-      <title>Contato</title>
-      <link>https://h1go.github.io/contact/_index.br/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://h1go.github.io/contact/_index.br/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
