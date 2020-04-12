@@ -1,574 +1,67 @@
-<!doctype html>
-<html lang="ja">
-  <head>
-  <meta charset="utf-8">
-<title>LaTeXでテーブル（表）のキャプションをカスタマイズする - Cluttered Room</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<meta name="generator" content="Hugo 0.68.3" /><meta itemprop="name" content="LaTeXでテーブル（表）のキャプションをカスタマイズする">
-<meta itemprop="description" content="LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．
+<!doctype html><html lang=ja><head><meta charset=utf-8><title>LaTeXでテーブル（表）のキャプションをカスタマイズする - Cluttered Room</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.68.3"><meta itemprop=name content="LaTeXでテーブル（表）のキャプションをカスタマイズする"><meta itemprop=description content="LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．
 具体的には
- こういう表を
- こんな感じにしたい． （例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）
+      こういう表を
+      こんな感じにしたい． （例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）
 解決法 threeparttableパッケージと captionパッケージを使用する． どちらもTeXLiveにはデフォルトで入ってるはず．
-\documentclass[uplatex,a4j]{jsarticle} \usepackage{threeparttable} \usepackage{caption} \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} \begin{document} \begin{table}[ht] \centering \begin{threeparttable} \caption{キャプションが左寄せの表} \begin{tabular}{|l|l|l|l|} \hline ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ \\ \hline ああああ &amp; いいいい &amp; うううう &amp; ええええ \\ \hline \end{tabular} \end{threeparttable} \end{table} \end{document} こんな感じ．
+\documentclass[uplatex,a4j]{jsarticle} \usepackage{threeparttable} \usepackage{caption} \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} \begin{document} \begin{table}[ht] \centering \begin{threeparttable} \caption{キャプションが左寄せの表} \begin{tabular}{|l|l|l|l|} \hline ほげほげほげ & ほげほげほげ & ほげほげほげ & ほげほげほげ \\ \hline ああああ & いいいい & うううう & ええええ \\ \hline \end{tabular} \end{threeparttable} \end{table} \end{document} こんな感じ．
 キャブションをカスタマイズするには
 \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} の部分をいじれば良い．簡単に解説すると
  labelsep:
 「表n」部分とそれ以降のテキスト部分の間を何で区切るか．period(ピリオド)以外にもspace(スペース)，colon(コロン)，newline(改行)などがある． labelfont:
-「表n」部分のフォントをどうするか．bf(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合はfontを，テキスト部分のみ変えたい場合はtextfontを使う． justification:">
-<meta itemprop="datePublished" content="2018-11-09T00:00:00&#43;09:00" />
-<meta itemprop="dateModified" content="2018-11-09T00:00:00&#43;09:00" />
-<meta itemprop="wordCount" content="61">
-
-
-
-<meta itemprop="keywords" content="LaTeX," /><meta property="og:title" content="LaTeXでテーブル（表）のキャプションをカスタマイズする" />
-<meta property="og:description" content="LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．
+「表n」部分のフォントをどうするか．bf(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合はfontを，テキスト部分のみ変えたい場合はtextfontを使う． justification:"><meta itemprop=datePublished content="2018-11-09T00:00:00+09:00"><meta itemprop=dateModified content="2018-11-09T00:00:00+09:00"><meta itemprop=wordCount content="61"><meta itemprop=keywords content="LaTeX,"><meta property="og:title" content="LaTeXでテーブル（表）のキャプションをカスタマイズする"><meta property="og:description" content="LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．
 具体的には
- こういう表を
- こんな感じにしたい． （例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）
+      こういう表を
+      こんな感じにしたい． （例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）
 解決法 threeparttableパッケージと captionパッケージを使用する． どちらもTeXLiveにはデフォルトで入ってるはず．
-\documentclass[uplatex,a4j]{jsarticle} \usepackage{threeparttable} \usepackage{caption} \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} \begin{document} \begin{table}[ht] \centering \begin{threeparttable} \caption{キャプションが左寄せの表} \begin{tabular}{|l|l|l|l|} \hline ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ \\ \hline ああああ &amp; いいいい &amp; うううう &amp; ええええ \\ \hline \end{tabular} \end{threeparttable} \end{table} \end{document} こんな感じ．
+\documentclass[uplatex,a4j]{jsarticle} \usepackage{threeparttable} \usepackage{caption} \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} \begin{document} \begin{table}[ht] \centering \begin{threeparttable} \caption{キャプションが左寄せの表} \begin{tabular}{|l|l|l|l|} \hline ほげほげほげ & ほげほげほげ & ほげほげほげ & ほげほげほげ \\ \hline ああああ & いいいい & うううう & ええええ \\ \hline \end{tabular} \end{threeparttable} \end{table} \end{document} こんな感じ．
 キャブションをカスタマイズするには
 \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} の部分をいじれば良い．簡単に解説すると
  labelsep:
 「表n」部分とそれ以降のテキスト部分の間を何で区切るか．period(ピリオド)以外にもspace(スペース)，colon(コロン)，newline(改行)などがある． labelfont:
-「表n」部分のフォントをどうするか．bf(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合はfontを，テキスト部分のみ変えたい場合はtextfontを使う． justification:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://clutte.red/blog/2018/11/latex-table-caption/" />
-<meta property="article:published_time" content="2018-11-09T00:00:00+09:00" />
-<meta property="article:modified_time" content="2018-11-09T00:00:00+09:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="LaTeXでテーブル（表）のキャプションをカスタマイズする"/>
-<meta name="twitter:description" content="LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．
+「表n」部分のフォントをどうするか．bf(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合はfontを，テキスト部分のみ変えたい場合はtextfontを使う． justification:"><meta property="og:type" content="article"><meta property="og:url" content="https://clutte.red/blog/2018/11/latex-table-caption/"><meta property="article:published_time" content="2018-11-09T00:00:00+09:00"><meta property="article:modified_time" content="2018-11-09T00:00:00+09:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="LaTeXでテーブル（表）のキャプションをカスタマイズする"><meta name=twitter:description content="LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．
 具体的には
- こういう表を
- こんな感じにしたい． （例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）
+      こういう表を
+      こんな感じにしたい． （例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）
 解決法 threeparttableパッケージと captionパッケージを使用する． どちらもTeXLiveにはデフォルトで入ってるはず．
-\documentclass[uplatex,a4j]{jsarticle} \usepackage{threeparttable} \usepackage{caption} \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} \begin{document} \begin{table}[ht] \centering \begin{threeparttable} \caption{キャプションが左寄せの表} \begin{tabular}{|l|l|l|l|} \hline ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ \\ \hline ああああ &amp; いいいい &amp; うううう &amp; ええええ \\ \hline \end{tabular} \end{threeparttable} \end{table} \end{document} こんな感じ．
+\documentclass[uplatex,a4j]{jsarticle} \usepackage{threeparttable} \usepackage{caption} \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} \begin{document} \begin{table}[ht] \centering \begin{threeparttable} \caption{キャプションが左寄せの表} \begin{tabular}{|l|l|l|l|} \hline ほげほげほげ & ほげほげほげ & ほげほげほげ & ほげほげほげ \\ \hline ああああ & いいいい & うううう & ええええ \\ \hline \end{tabular} \end{threeparttable} \end{table} \end{document} こんな感じ．
 キャブションをカスタマイズするには
 \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} の部分をいじれば良い．簡単に解説すると
  labelsep:
 「表n」部分とそれ以降のテキスト部分の間を何で区切るか．period(ピリオド)以外にもspace(スペース)，colon(コロン)，newline(改行)などがある． labelfont:
-「表n」部分のフォントをどうするか．bf(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合はfontを，テキスト部分のみ変えたい場合はtextfontを使う． justification:"/>
-<link rel="stylesheet" href="/css/bundle.min.052e421210693fe08075e9da2a349c35e1cae3cd8e8c3301d62d9d41f9ab9221.css" integrity="sha256-BS5CEhBpP&#43;CAdenaKjScNeHK482OjDMB1i2dQfmrkiE=">
-        <link rel="stylesheet" href="/css/add-on.css">
-        <link rel="stylesheet" href="/css/syntax.css">
-</head>
-
-  <body>
-    
-<header id="site-header">
-  <nav id="site-nav">
-    <h1 class="nav-title">
-      <a href="/">
-        
-          Cluttered Room
-        
-      </a>
-    </h1>
-    <menu id="site-nav-menu" class="flyout-menu">
-      
-        
-          
-          
-            <a href="/" class="link"><i class='fa fa-home'></i> Home</a>
-          
-        
-      
-        
-          
-          
-            <a href="/about/" class="link"><i class='far fa-id-card'></i> About</a>
-          
-        
-      
-        
-          
-          
-            <a href="/blog/" class="link"><i class='far fa-newspaper'></i> Blog</a>
-          
-        
-      
-        
-          
-          
-            <a href="/categories/" class="link"><i class='fas fa-sitemap'></i> Categories</a>
-          
-        
-      
-      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
-      
-
-    </menu>
-    
-
-    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
-    
-    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
-  </nav>
-  
-  
-    <menu id="share-menu" class="flyout-menu">
-      <h1>Share Post</h1>
-      
-
-
-
-
-  
-    
-    <a href="//twitter.com/share?text=LaTeX%e3%81%a7%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%ef%bc%88%e8%a1%a8%ef%bc%89%e3%81%ae%e3%82%ad%e3%83%a3%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba%e3%81%99%e3%82%8b&amp;url=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target="_blank" rel="noopener" class="share-btn twitter">
-        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
-      </a>
-  
-
-  
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target="_blank" rel="noopener" class="share-btn facebook">
-        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
-        </a>
-  
-
-  
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f&amp;title=LaTeX%e3%81%a7%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%ef%bc%88%e8%a1%a8%ef%bc%89%e3%81%ae%e3%82%ad%e3%83%a3%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba%e3%81%99%e3%82%8b" target="_blank" rel="noopener" class="share-btn linkedin">
-            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
-          </a>
-  
-
-  
-        <a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target="_blank" class="share-btn email" data-proofer-ignore>
-          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
-        </a>
-  
-
-
-    </menu>
-  
-</header>
-
-    <div id="wrapper">
-      <section id="site-intro" class="hidden-single-column">
-  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="128" alt="Cluttered Room" /></a>
-  <header>
-    <h1>Cluttered Room</h1>
-  </header>
-  <main>
-    <p>雑然とした部屋</p>
-  </main>
-  
-    <footer>
-      <ul class="socnet-icons">
-        
-        <li><a href="//github.com/h1g0" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li><a href="mailto:me%ef%bc%88%e3%81%82%e3%81%a3%e3%81%a8%ef%bc%89clutte.red" target="_blank" title="Email" class="far fa-envelope"></a></li>
-
-      </ul>
-    </footer>
-  
-</section>
-
-      <main id="site-main">
-        <article class="post">
-  <header>
-  <div class="title">
-    
-      <h2><a href="/blog/2018/11/latex-table-caption/">LaTeXでテーブル（表）のキャプションをカスタマイズする</a></h2>
-    
-    
-  </div>
-  <div class="meta">
-    <time class="published" datetime="2018-11-09 00:00:00 &#43;0900 JST">
-      2018-11-09
-    </time>
-    <span class="author"></span>
-    
-      <p>1分で読めます</p>
-    
-  </div>
-</header>
-
-  <section id="socnet-share">
-    
-
-
-
-
-  
-    
-    <a href="//twitter.com/share?text=LaTeX%e3%81%a7%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%ef%bc%88%e8%a1%a8%ef%bc%89%e3%81%ae%e3%82%ad%e3%83%a3%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba%e3%81%99%e3%82%8b&amp;url=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target="_blank" rel="noopener" class="share-btn twitter">
-        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
-      </a>
-  
-
-  
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target="_blank" rel="noopener" class="share-btn facebook">
-        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
-        </a>
-  
-
-  
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f&amp;title=LaTeX%e3%81%a7%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%ef%bc%88%e8%a1%a8%ef%bc%89%e3%81%ae%e3%82%ad%e3%83%a3%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba%e3%81%99%e3%82%8b" target="_blank" rel="noopener" class="share-btn linkedin">
-            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
-          </a>
-  
-
-  
-        <a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target="_blank" class="share-btn email" data-proofer-ignore>
-          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
-        </a>
-  
-
-
-  </section>
-  
-
-  <div class="content">
-    <p>LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．</p>
-<p>具体的には</p>
-
-
-
-
-
-
-
-
-
-
-<figure style="width: 515px; padding: 3px; background-color: #cccc;">
-  <a href ="/blog/2018/11/latex-table-caption/latex_normaltable.png">
-  <img src="/blog/2018/11/latex-table-caption/latex_normaltable_huf5eb6ec3c6156f68eab97cc8d7b24cb9_11621_512x0_resize_box_2.png" alt="" width="512"
-       height="125">
-  </a>
-  <figcaption>
-    <small>
-      
-      
-      
-    </small>
-  </figcaption>
-</figure>
-<p>こういう表を</p>
-
-
-
-
-
-
-
-
-
-
-<figure style="width: 515px; padding: 3px; background-color: #cccc;">
-  <a href ="/blog/2018/11/latex-table-caption/latex_customizedtable.png">
-  <img src="/blog/2018/11/latex-table-caption/latex_customizedtable_hu8bb5b7d0344b30a1ebcbab31bb30b6ab_13796_512x0_resize_box_2.png" alt="" width="512"
-       height="120">
-  </a>
-  <figcaption>
-    <small>
-      
-      
-      
-    </small>
-  </figcaption>
-</figure>
-<p>こんな感じにしたい．
-（例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）</p>
-<h2 id="解決法">解決法</h2>
-<p><a href="https://ctan.org/pkg/threeparttable" target="_blank">threeparttable</a>パッケージと
-<a href="https://gitlab.com/axelsommerfeldt/caption" target="_blank">caption</a>パッケージを使用する．
-どちらもTeXLiveにはデフォルトで入ってるはず．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex"><span style="color:#66d9ef">\documentclass</span><span style="color:#a6e22e">[uplatex,a4j]</span>{jsarticle}
-
-<span style="color:#66d9ef">\usepackage</span>{threeparttable}
-<span style="color:#66d9ef">\usepackage</span>{caption}
-<span style="color:#66d9ef">\captionsetup</span><span style="color:#a6e22e">[table]</span>{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off}
-
-
-<span style="color:#66d9ef">\begin</span>{document}
-
-<span style="color:#66d9ef">\begin</span>{table}[ht]
-    <span style="color:#66d9ef">\centering</span>
-    <span style="color:#66d9ef">\begin</span>{threeparttable} 
-        <span style="color:#66d9ef">\caption</span>{キャプションが左寄せの表}
-        <span style="color:#66d9ef">\begin</span>{tabular}{|l|l|l|l|}
-            <span style="color:#66d9ef">\hline</span>
-            ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ <span style="color:#66d9ef">\\</span> <span style="color:#66d9ef">\hline</span>
-            ああああ &amp; いいいい &amp; うううう &amp; ええええ <span style="color:#66d9ef">\\</span> <span style="color:#66d9ef">\hline</span>
-        <span style="color:#66d9ef">\end</span>{tabular}
-    <span style="color:#66d9ef">\end</span>{threeparttable} 
-<span style="color:#66d9ef">\end</span>{table}
-
-<span style="color:#66d9ef">\end</span>{document}
-</code></pre></div><p>こんな感じ．</p>
-<p>キャブションをカスタマイズするには</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex"><span style="color:#66d9ef">\captionsetup</span><span style="color:#a6e22e">[table]</span>{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off}
-</code></pre></div><p>の部分をいじれば良い．簡単に解説すると</p>
-<ul>
-<li><code>labelsep</code>:<br>
-「表n」部分とそれ以降のテキスト部分の間を何で区切るか．<code>period</code>(ピリオド)以外にも<code>space</code>(スペース)，<code>colon</code>(コロン)，<code>newline</code>(改行)などがある．</li>
-<li><code>labelfont</code>:<br>
-「表n」部分のフォントをどうするか．<code>bf</code>(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合は<code>font</code>を，テキスト部分のみ変えたい場合は<code>textfont</code>を使う．</li>
-<li><code>justification</code>:<br>
-キャプションをどこに寄せるか．ややこしいようだが<code>raggedright</code>で左，<code>centering</code>で中央，<code>raggedleft</code>で右に寄せられる．</li>
-<li><code>singlelinecheck</code>:<br>
-LaTeXのドキュメントクラスはキャプションが1行の場合，自動的に中央に寄せるようになる．それを<code>off</code>でオフにする．上記の<code>justification</code>を使用する場合，ほとんどの場合で必須．</li>
-</ul>
-<p>このほかにもマージンのカスタマイズなど，様々なオプションが用意されているので，詳しくは<a href="https://gitlab.com/axelsommerfeldt/caption/blob/3.3/doc/caption-eng.pdf" target="_blank">公式ドキュメント(PDF)</a>を参照して欲しい．</p>
-
-  </div>
-  <footer>
-    <ul class="stats">
-  
-    
-    
-      <li class="categories">
-        <ul>
-          
-            
-            <li><a class="article-category-link" href="https://clutte.red/categories/latex">LaTeX</a></li>
-          
-        </ul>
-      </li>
-    
-  
-  
-    
-    
-      <li class="tags">
-        <ul>
-          
-            
-            <li><a class="article-category-link" href="https://clutte.red/tags/latex">LaTeX</a></li>
-          
-        </ul>
-      </li>
-    
-  
-</ul>
-
-  </footer>
-</article>
-
-    <article class="post">
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "cluttered-room" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </article>
-
-
-
-
-<div class="pagination">
-  
-    <a href="/blog/2018/11/writing-japanese-business-documents-in-latex/" class="button"><div class="previous"><div>LaTeXでビジネス文書を書く</div></div></a>
-  
-  
-    <a href="/blog/2018/11/latex-addcontentsline-without-page-no/" class="button"><div class="next"><div>LaTeXで目次にページ番号のない独自項目を追加する</div></div></a>
-  
-</div>
-
-
-      </main>
-      <section id="site-sidebar">
-  
-    <section id="recent-posts">
-      <header>
-        <h1>最近の投稿</h1>
-      </header>
-      
-      <article class="mini-post">
-        <section>
-          
-
-        </section>
-        <header>
-          <h1><a href="/blog/2020/04/test/">Hello, Hugo!</a></h1>
-          <time class="published" datetime="">2020-04-09</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-        <section>
-          
-
-        </section>
-        <header>
-          <h1><a href="/blog/2019/10/python-filecmp-shallow/">[Python] filecmpの引数shallowの細かい仕様について</a></h1>
-          <time class="published" datetime="">2019-10-06</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-        <section>
-          
-
-        </section>
-        <header>
-          <h1><a href="/blog/2019/07/rustup-inst-exe-failed-to-install/">[Rust] rustup-inst.exeでの新規インストール時に「アクセスが拒否されました。(os error 5)」が出る時の対処法</a></h1>
-          <time class="published" datetime="">2019-07-28</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-        <section>
-          
-
-        </section>
-        <header>
-          <h1><a href="/blog/2019/07/rust-brainfxxk-interpreter/">RustでBrainf*ckインタプリタを書いた</a></h1>
-          <time class="published" datetime="">2019-07-21</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-        <section>
-          
-
-        </section>
-        <header>
-          <h1><a href="/blog/2019/06/replace-notepad-to-npp/">Notepad&#43;&#43;の64bit版でメモ帳を置き換える際の注意点</a></h1>
-          <time class="published" datetime="">2019-06-22</time>
-        </header>
-      </article>
-      
-      
-        <footer>
-          <a href="/blog/" class="button">続きを見る</a>
-        </footer>
-      
-    </section>
-  
-
-  
-    
-      <section id="categories">
-        <header>
-          <h1><a href="/categories">カテゴリ</a></h1>
-        </header>
-        <ul>
-          
-            
-          
-          
-          <li>
-            
-              <a href="/categories/javascript/">javascript<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/latex/">latex<span class="count">4</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/misc/">misc<span class="count">2</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/others/">others<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/python/">python<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/rust/">rust<span class="count">2</span></a>
-            
-          
-          </li>
-        </ul>
-      </section>
-    
-  
-
-  
-</section>
-
-      <footer id="site-footer">
-  
-      <ul class="socnet-icons">
-        
-
-        
-      </ul>
-  
-  <p class="copyright">
-    
-      &copy; 2020
-      
-        Cluttered Room
-      
-    . <br>
-    Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International License.
-  </p>
-</footer>
-<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
-
-      <script src="/js/bundle.min.e0c399b948d3cf5c3a5e3badb94023d0b064a19ac39fd8cd79fb9f57fa4d1091.js" integrity="sha256-4MOZuUjTz1w6XjutuUAj0LBkoZrDn9jNefufV/pNEJE="></script>
-    <script src="/js/add-on.js"></script>
-    </div>
-  </body>
-</html>
+「表n」部分のフォントをどうするか．bf(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合はfontを，テキスト部分のみ変えたい場合はtextfontを使う． justification:"><link rel=stylesheet href=/css/bundle.min.052e421210693fe08075e9da2a349c35e1cae3cd8e8c3301d62d9d41f9ab9221.css integrity="sha256-BS5CEhBpP+CAdenaKjScNeHK482OjDMB1i2dQfmrkiE="><link rel=stylesheet href=/css/add-on.css><link rel=stylesheet href=/css/syntax.css></head><body><header id=site-header><nav id=site-nav><h1 class=nav-title><a href=/>Cluttered Room</a></h1><menu id=site-nav-menu class=flyout-menu><a href=/ class=link><i class="fa fa-home"></i>Home</a>
+<a href=/about/ class=link><i class="far fa-id-card"></i>About</a>
+<a href=/blog/ class=link><i class="far fa-newspaper"></i>Blog</a>
+<a href=/categories/ class=link><i class="fas fa-sitemap"></i>Categories</a>
+<a href=#share-menu class=share-toggle><i class="fas fa-share-alt">&nbsp;</i>Share</a></menu>
+<a href=#share-menu class=share-toggle><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+<a href=#site-nav class=nav-toggle><i class="fas fa-bars fa-2x"></i></a></nav><menu id=share-menu class=flyout-menu><h1>Share Post</h1><a href="//twitter.com/share?text=LaTeX%e3%81%a7%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%ef%bc%88%e8%a1%a8%ef%bc%89%e3%81%ae%e3%82%ad%e3%83%a3%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba%e3%81%99%e3%82%8b&url=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target=_blank rel=noopener class="share-btn twitter"><i class="fab fa-twitter"></i><p>&nbsp;Twitter</p></a><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target=_blank rel=noopener class="share-btn facebook"><i class="fab fa-facebook"></i><p>&nbsp;Facebook</p></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f&title=LaTeX%e3%81%a7%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%ef%bc%88%e8%a1%a8%ef%bc%89%e3%81%ae%e3%82%ad%e3%83%a3%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba%e3%81%99%e3%82%8b" target=_blank rel=noopener class="share-btn linkedin"><i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p></a><a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&body=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target=_blank class="share-btn email" data-proofer-ignore><i class="fas fa-envelope"></i><p>&nbsp;Email</p></a></menu></header><div id=wrapper><section id=site-intro class=hidden-single-column><a href=/><img src=/img/main/logo.jpg class=circle width=128 alt="Cluttered Room"></a><header><h1>Cluttered Room</h1></header><main><p>雑然とした部屋</p></main><footer><ul class=socnet-icons><li><a href=//github.com/h1g0 target=_blank rel=noopener title=GitHub class="fab fa-github"></a></li><li><a href=mailto:me%ef%bc%88%e3%81%82%e3%81%a3%e3%81%a8%ef%bc%89clutte.red target=_blank title=Email class="far fa-envelope"></a></li></ul></footer></section><main id=site-main><article class=post><header><div class=title><h2><a href=/blog/2018/11/latex-table-caption/>LaTeXでテーブル（表）のキャプションをカスタマイズする</a></h2></div><div class=meta><time class=published datetime="2018-11-09 00:00:00 +0900 +0900">2018-11-09</time>
+<span class=author></span><p>1分で読めます</p></div></header><section id=socnet-share><a href="//twitter.com/share?text=LaTeX%e3%81%a7%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%ef%bc%88%e8%a1%a8%ef%bc%89%e3%81%ae%e3%82%ad%e3%83%a3%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba%e3%81%99%e3%82%8b&url=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target=_blank rel=noopener class="share-btn twitter"><i class="fab fa-twitter"></i><p>&nbsp;Twitter</p></a><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target=_blank rel=noopener class="share-btn facebook"><i class="fab fa-facebook"></i><p>&nbsp;Facebook</p></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f&title=LaTeX%e3%81%a7%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%ef%bc%88%e8%a1%a8%ef%bc%89%e3%81%ae%e3%82%ad%e3%83%a3%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba%e3%81%99%e3%82%8b" target=_blank rel=noopener class="share-btn linkedin"><i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p></a><a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&body=https%3a%2f%2fclutte.red%2fblog%2f2018%2f11%2flatex-table-caption%2f" target=_blank class="share-btn email" data-proofer-ignore><i class="fas fa-envelope"></i><p>&nbsp;Email</p></a></section><div class=content><p>LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．</p><p>具体的には</p><figure style=width:515px;padding:3px;background-color:#cccc><a href=/blog/2018/11/latex-table-caption/latex_normaltable.png><img src=/blog/2018/11/latex-table-caption/latex_normaltable_huf5eb6ec3c6156f68eab97cc8d7b24cb9_11621_512x0_resize_box_2.png alt width=512 height=125></a><figcaption><small></small></figcaption></figure><p>こういう表を</p><figure style=width:515px;padding:3px;background-color:#cccc><a href=/blog/2018/11/latex-table-caption/latex_customizedtable.png><img src=/blog/2018/11/latex-table-caption/latex_customizedtable_hu8bb5b7d0344b30a1ebcbab31bb30b6ab_13796_512x0_resize_box_2.png alt width=512 height=120></a><figcaption><small></small></figcaption></figure><p>こんな感じにしたい．
+（例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）</p><h2 id=解決法>解決法</h2><p><a href=https://ctan.org/pkg/threeparttable target=_blank>threeparttable</a>パッケージと
+<a href=https://gitlab.com/axelsommerfeldt/caption target=_blank>caption</a>パッケージを使用する．
+どちらもTeXLiveにはデフォルトで入ってるはず．</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\documentclass</span><span style=color:#a6e22e>[uplatex,a4j]</span>{jsarticle}
+
+<span style=color:#66d9ef>\usepackage</span>{threeparttable}
+<span style=color:#66d9ef>\usepackage</span>{caption}
+<span style=color:#66d9ef>\captionsetup</span><span style=color:#a6e22e>[table]</span>{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off}
+
+
+<span style=color:#66d9ef>\begin</span>{document}
+
+<span style=color:#66d9ef>\begin</span>{table}[ht]
+    <span style=color:#66d9ef>\centering</span>
+    <span style=color:#66d9ef>\begin</span>{threeparttable} 
+        <span style=color:#66d9ef>\caption</span>{キャプションが左寄せの表}
+        <span style=color:#66d9ef>\begin</span>{tabular}{|l|l|l|l|}
+            <span style=color:#66d9ef>\hline</span>
+            ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ &amp; ほげほげほげ <span style=color:#66d9ef>\\</span> <span style=color:#66d9ef>\hline</span>
+            ああああ &amp; いいいい &amp; うううう &amp; ええええ <span style=color:#66d9ef>\\</span> <span style=color:#66d9ef>\hline</span>
+        <span style=color:#66d9ef>\end</span>{tabular}
+    <span style=color:#66d9ef>\end</span>{threeparttable} 
+<span style=color:#66d9ef>\end</span>{table}
+
+<span style=color:#66d9ef>\end</span>{document}
+</code></pre></div><p>こんな感じ．</p><p>キャブションをカスタマイズするには</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\captionsetup</span><span style=color:#a6e22e>[table]</span>{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off}
+</code></pre></div><p>の部分をいじれば良い．簡単に解説すると</p><ul><li><code>labelsep</code>:<br>「表n」部分とそれ以降のテキスト部分の間を何で区切るか．<code>period</code>(ピリオド)以外にも<code>space</code>(スペース)，<code>colon</code>(コロン)，<code>newline</code>(改行)などがある．</li><li><code>labelfont</code>:<br>「表n」部分のフォントをどうするか．<code>bf</code>(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合は<code>font</code>を，テキスト部分のみ変えたい場合は<code>textfont</code>を使う．</li><li><code>justification</code>:<br>キャプションをどこに寄せるか．ややこしいようだが<code>raggedright</code>で左，<code>centering</code>で中央，<code>raggedleft</code>で右に寄せられる．</li><li><code>singlelinecheck</code>:<br>LaTeXのドキュメントクラスはキャプションが1行の場合，自動的に中央に寄せるようになる．それを<code>off</code>でオフにする．上記の<code>justification</code>を使用する場合，ほとんどの場合で必須．</li></ul><p>このほかにもマージンのカスタマイズなど，様々なオプションが用意されているので，詳しくは<a href=https://gitlab.com/axelsommerfeldt/caption/blob/3.3/doc/caption-eng.pdf target=_blank>公式ドキュメント(PDF)</a>を参照して欲しい．</p></div><footer><ul class=stats><li class=categories><ul><li><a class=article-category-link href=https://clutte.red/categories/latex>LaTeX</a></li></ul></li><li class=tags><ul><li><a class=article-category-link href=https://clutte.red/tags/latex>LaTeX</a></li></ul></li></ul></footer></article><article class=post><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
+var d=document,s=d.createElement('script');s.async=true;s.src='//'+"cluttered-room"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></article><div class=pagination><a href=/blog/2018/11/writing-japanese-business-documents-in-latex/ class=button><div class=previous><div>LaTeXでビジネス文書を書く</div></div></a><a href=/blog/2018/11/latex-addcontentsline-without-page-no/ class=button><div class=next><div>LaTeXで目次にページ番号のない独自項目を追加する</div></div></a></div></main><section id=site-sidebar><section id=recent-posts><header><h1>最近の投稿</h1></header><article class=mini-post><section></section><header><h1><a href=/blog/2020/04/bought-new-hhkb/>HHKB Professional HYBRID Type-Sを買った</a></h1><time class=published datetime>2020-04-13</time></header></article><article class=mini-post><section></section><header><h1><a href=/blog/2020/04/test/>Hello, Hugo!</a></h1><time class=published datetime>2020-04-09</time></header></article><article class=mini-post><section></section><header><h1><a href=/blog/2019/10/python-filecmp-shallow/>[Python] filecmpの引数shallowの細かい仕様について</a></h1><time class=published datetime>2019-10-06</time></header></article><article class=mini-post><section></section><header><h1><a href=/blog/2019/07/rustup-inst-exe-failed-to-install/>[Rust] rustup-inst.exeでの新規インストール時に「アクセスが拒否されました。(os error 5)」が出る時の対処法</a></h1><time class=published datetime>2019-07-28</time></header></article><article class=mini-post><section></section><header><h1><a href=/blog/2019/07/rust-brainfxxk-interpreter/>RustでBrainf*ckインタプリタを書いた</a></h1><time class=published datetime>2019-07-21</time></header></article><footer><a href=/blog/ class=button>続きを見る</a></footer></section><section id=categories><header><h1><a href=/categories>カテゴリ</a></h1></header><ul><li><a href=/categories/gadgets/>gadgets<span class=count>1</span></a><li><a href=/categories/javascript/>javascript<span class=count>1</span></a><li><a href=/categories/latex/>latex<span class=count>4</span></a><li><a href=/categories/misc/>misc<span class=count>2</span></a><li><a href=/categories/others/>others<span class=count>1</span></a><li><a href=/categories/python/>python<span class=count>1</span></a><li><a href=/categories/rust/>rust<span class=count>2</span></a></li></ul></section></section><footer id=site-footer><ul class=socnet-icons></ul><p class=copyright>&copy; 2020
+Cluttered Room
+.<br>Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International License.</p></footer><a id=back-to-top href=# class="fas fa-arrow-up fa-2x"></a><script src=/js/bundle.min.e0c399b948d3cf5c3a5e3badb94023d0b064a19ac39fd8cd79fb9f57fa4d1091.js integrity="sha256-4MOZuUjTz1w6XjutuUAj0LBkoZrDn9jNefufV/pNEJE="></script><script src=/js/add-on.js></script></div></body></html>

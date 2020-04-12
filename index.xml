@@ -1,52 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Cluttered Room</title>
-    <link>https://clutte.red/</link>
-    <description>Recent content on Cluttered Room</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://clutte.red/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Hello, Hugo!</title>
-      <link>https://clutte.red/blog/2020/04/test/</link>
-      <pubDate>Thu, 09 Apr 2020 00:12:59 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2020/04/test/</guid>
-      <description>このサイトのフレームワークをWordPressからHugoに乗り換えてみた。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cluttered Room</title><link>https://clutte.red/</link><description>Recent content on Cluttered Room</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 13 Apr 2020 00:42:51 +0900</lastBuildDate><atom:link href="https://clutte.red/index.xml" rel="self" type="application/rss+xml"/><item><title>HHKB Professional HYBRID Type-Sを買った</title><link>https://clutte.red/blog/2020/04/bought-new-hhkb/</link><pubDate>Mon, 13 Apr 2020 00:42:51 +0900</pubDate><guid>https://clutte.red/blog/2020/04/bought-new-hhkb/</guid><description>1ヶ月ほど前にHappy Hacking Keyboard (HHKB) Professional HYBRID Type-Sを買った。
+購入に至る経緯 自分は今まで仕事ではHHKB Professional2 Type-Sを、 自宅ではMajestouch MINILA Airを使っていた。
+そんな中、昨今のリモートワークの流れで、自分も自宅で仕事をせざるを得なくなった。 そこで「いつもやっている仕事は、やはりHHKBでやりたい」ということで、自宅にHHKBを持ち帰った。
+ところが、リモートワークを初めて1週間経たないうちにHHKBにコーヒーをこぼしてしまった。 表面上の被害は軽微だったように見えたため、軽く拭き取ってそのままにしていたのだが、しばらくするとHHKBが誤作動1するようになってしまった。
+慌てて中の基板を確かめたところ、基板までコーヒーが浸水してしまっており、 どうやらそれが原因で基板が駄目になってしまったようだった2。
+調べたところ、HHKBは公式では修理を行っていないらしい。 エンジニアの自分にとってキーボードは商売道具と言っても過言ではないため相当ヘコんだが、 去年の12月にHHKBの新シリーズ「HYBRID」が発売されていたことを知っていたため、そちらの購入を決意した。
+購入した理由としては以下の通りである。
+HHKBの打鍵感は他のキーボードの追随を許さない唯一無二のものであると考えていること。 HYBRIDはキーマッピングのカスタマイズができる点がウリの1つであったこと 1ヶ月ほど使用してみた感想 打鍵感はほぼ期待通りであった。旧HHKB（自分が持っているProfessional2 Type-S）と比較すると、やや打鍵感が異なるように思え、若干疲れやすくなった気がしないでもない。 しかし、それでも他のキーボードよりも優れているとは思う。
+Bluetooth接続は問題なく機能している。最大4台の接続情報を記憶しておき、Fn + Ctrl + 1～4 キーで接続を切り替えられるのも便利である。
+キーマッピングに関してはかなり期待していたのだが、やや期待はずれであった（後述）。
+キーマッピング 現在の自分の Fn レイヤーのキーマッピングはこんな感じである。通常レイヤーは変更点は無い。
+概要としては
+左手のホームポジション周辺 E, S, D, F キーにそれぞれカーソルキーを配置。これはMajestouch MINILAがこの設定であり、右端にあるHHKBよりも便利だからである。 HHKB本来のカーソルキーもよく使用するため、そのまま残した。 カーソルキーの右上と左上には PgUp, PgDn キーを配置。これは自分が好きなThinkPadシリーズのキー配列がこうなっており、便利だからである。 右手のホームポジション周辺 H, J, KにそれぞれBS,Ent,Delキーを配置。よく使うキーにも関わらず、ホームポジションから遠い位置にあるのが気に入らなかったためである。 こんな感じ。
+キーマッピングの問題点 右Fnキー、Controlキー、Qキーなど、一部のキーはキーマッピングを設定できない。 これらの設定を変更できないキーはソフトウェア上で「☒」アイコンになっているが、それ以外にもZ キーなど、 一見すると設定変更可能であるように見えるキーの中に、なぜか設定変更できないキーが存在する。</description></item><item><title>Hello, Hugo!</title><link>https://clutte.red/blog/2020/04/test/</link><pubDate>Thu, 09 Apr 2020 00:12:59 +0900</pubDate><guid>https://clutte.red/blog/2020/04/test/</guid><description>このサイトのフレームワークをWordPressからHugoに乗り換えてみた。
 その理由として、
- Markdownでコンテンツを書ける Gitで管理できる そのため、GitHub Pagesでホスティングできる WordPressはウェブサイトを動的に生成するため、サイトの構成やサーバのスペック等によっては動作が重い。また、脆弱性も懸念点となる Hugoは静的サイトジェネレータであるため、WordPressよりも軽量な動作が期待できる。  などが挙げられる。
-しばらくこれでやってみよう。</description>
-    </item>
-    
-    <item>
-      <title>[Python] filecmpの引数shallowの細かい仕様について</title>
-      <link>https://clutte.red/blog/2019/10/python-filecmp-shallow/</link>
-      <pubDate>Sun, 06 Oct 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2019/10/python-filecmp-shallow/</guid>
-      <description>Pythonのfilecmpは引数にshallow = True を付ける（デフォルト）と「浅い」ファイル比較を行う。この際に何を参照して「同じファイル」と判断するのか調べる必要があったのでメモ。 なお、この記事はPython 3.7 時点での情報である。
+Markdownでコンテンツを書ける Gitで管理できる そのため、GitHub Pagesでホスティングできる WordPressはウェブサイトを動的に生成するため、サイトの構成やサーバのスペック等によっては動作が重い。また、脆弱性も懸念点となる Hugoは静的サイトジェネレータであるため、WordPressよりも軽量な動作が期待できる。 などが挙げられる。
+しばらくこれでやってみよう。</description></item><item><title>[Python] filecmpの引数shallowの細かい仕様について</title><link>https://clutte.red/blog/2019/10/python-filecmp-shallow/</link><pubDate>Sun, 06 Oct 2019 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2019/10/python-filecmp-shallow/</guid><description>Pythonのfilecmpは引数にshallow = True を付ける（デフォルト）と「浅い」ファイル比較を行う。この際に何を参照して「同じファイル」と判断するのか調べる必要があったのでメモ。 なお、この記事はPython 3.7 時点での情報である。
 結論から言うと、ファイルサイズと最終更新日時が同一ならば同一のファイルとして判断される。
 解説として、「浅い」ファイル比較はファイルごとにシグネチャを生成し、それらが同じならば同じファイルであると判断する。そしてその際の生成コードが
 _sig(st): return (stat.S_IFMT(st.st_mode), st.st_size, st.st_mtime) となっている1。
 引数のstはos.stat_resultオブジェクトであるので、st_mode、 st_size、 st_mtimeの3つから同じファイルか判断していることになる。
 このうち、 st_modeはファイルタイプとファイルモード((ディレクトリか？ファイルか？シンボリックリンクか？etc.))の判定であるので、実質的にはst_size、つまりファイルサイズと、st_mtime、つまり最終更新日時で判定していることになる。
 なお、shallow = Falseとして「深い」ファイル比較を行うと、文字通り バイト単位でファイルの同一性をチェックする。当然ながら「浅い」ファイル比較よりも処理に時間がかかるが、より確実性を求める場合はこちらを使用することも検討すべきかもしれない。
-  https://github.com/python/cpython/blob/3.7/Lib/filecmp.py &amp;#x21a9;&amp;#xfe0e;
-   </description>
-    </item>
-    
-    <item>
-      <title>[Rust] rustup-inst.exeでの新規インストール時に「アクセスが拒否されました。(os error 5)」が出る時の対処法</title>
-      <link>https://clutte.red/blog/2019/07/rustup-inst-exe-failed-to-install/</link>
-      <pubDate>Sun, 28 Jul 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2019/07/rustup-inst-exe-failed-to-install/</guid>
-      <description>Windows 10にrustup-inst.exeを使ってRust1をインストールしようとしたところ、アクセスが拒否されました。(os error 5)のエラーが出てインストールできなかった。それを解決した際のメモ。
+https://github.com/python/cpython/blob/3.7/Lib/filecmp.py &amp;#x21a9;&amp;#xfe0e;</description></item><item><title>[Rust] rustup-inst.exeでの新規インストール時に「アクセスが拒否されました。(os error 5)」が出る時の対処法</title><link>https://clutte.red/blog/2019/07/rustup-inst-exe-failed-to-install/</link><pubDate>Sun, 28 Jul 2019 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2019/07/rustup-inst-exe-failed-to-install/</guid><description>Windows 10にrustup-inst.exeを使ってRust1をインストールしようとしたところ、アクセスが拒否されました。(os error 5)のエラーが出てインストールできなかった。それを解決した際のメモ。
 なお、インストールしようとしたrustupのバージョンは
 rustup 1.18.3 (435397f48 2019-05-22) である。
 解決法 とりあえずOSの再起動等を試してみても効果がなかったのでググってみたところ、githubのプロジェクトページに
@@ -54,119 +29,40 @@ fresh install fails on Windows: &amp;amp;ldquo;error: could not rename component
 というIssueが上がっているのを見つけた。読んでみたところ、自分の問題と同じであった。
 この記事を参考にアンチウィルスソフト（自分の場合はAvira）のリアルタイムプロテクションを一時的に切ってrustup-inst.exeを再試行したところ、今度は正常にインストールできた。
 以前rustup-inst.exeを使って同環境でセットアップを行った際には問題は発生しなかったので、rustup-inst.exeのアップデートによるものかAviraの更新に起因する問題なのかもしれない。
-  厳密にはrustup &amp;#x21a9;&amp;#xfe0e;
-   </description>
-    </item>
-    
-    <item>
-      <title>RustでBrainf*ckインタプリタを書いた</title>
-      <link>https://clutte.red/blog/2019/07/rust-brainfxxk-interpreter/</link>
-      <pubDate>Sun, 21 Jul 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2019/07/rust-brainfxxk-interpreter/</guid>
-      <description>最近Rustを学び始めた。そこで、RustでHello, world!プログラムを書いた。
+厳密にはrustup &amp;#x21a9;&amp;#xfe0e;</description></item><item><title>RustでBrainf*ckインタプリタを書いた</title><link>https://clutte.red/blog/2019/07/rust-brainfxxk-interpreter/</link><pubDate>Sun, 21 Jul 2019 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2019/07/rust-brainfxxk-interpreter/</guid><description>最近Rustを学び始めた。そこで、RustでHello, world!プログラムを書いた。
 といっても、普通にprintln!(&amp;quot;Hello, world!&amp;quot;);するだけでは何も面白くない。
 なのでBrainf*ckで、インタプリタと一緒に。
 コードは（今のところ）こんな感じ。そしてideoneによる実行結果はこんな感じ。ちなみにGithubにも上げてある。
-use std::collections::VecDeque; use std::collections::HashMap; enum Token { Inc, Dec, IncPtr, DecPtr, StartLoop, EndLoop, Input, Output, } impl Token{ fn tokenize(c:char) -&amp;gt; Option&amp;lt;Token&amp;gt;{ match c{ &amp;#39;+&amp;#39; =&amp;gt; Some(Token::Inc), &amp;#39;-&amp;#39; =&amp;gt; Some(Token::Dec), &amp;#39;&amp;gt;&amp;#39; =&amp;gt; Some(Token::IncPtr), &amp;#39;&amp;lt;&amp;#39; =&amp;gt; Some(Token::DecPtr), &amp;#39;[&amp;#39; =&amp;gt; Some(Token::StartLoop), &amp;#39;]&amp;#39; =&amp;gt; Some(Token::EndLoop), &amp;#39;,&amp;#39; =&amp;gt; Some(Token::Input), &amp;#39;.&amp;#39; =&amp;gt; Some(Token::Output), _ =&amp;gt; None, } } fn tokenize_from_array(char_array: Vec&amp;lt;char&amp;gt;)-&amp;gt;Vec&amp;lt;Token&amp;gt;{ let mut token_array: Vec&amp;lt;Token&amp;gt; = Vec::new(); for token in char_array.</description>
-    </item>
-    
-    <item>
-      <title>Notepad&#43;&#43;の64bit版でメモ帳を置き換える際の注意点</title>
-      <link>https://clutte.red/blog/2019/06/replace-notepad-to-npp/</link>
-      <pubDate>Sat, 22 Jun 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2019/06/replace-notepad-to-npp/</guid>
-      <description>tepad++はv7.5.9より、Windows標準のメモ帳を「置き換える」((正確にはメモ帳を起動しようとするとメモ帳の代わりにNotepad++が立ち上がる))ことが可能になっている。
+use std::collections::VecDeque; use std::collections::HashMap; enum Token { Inc, Dec, IncPtr, DecPtr, StartLoop, EndLoop, Input, Output, } impl Token{ fn tokenize(c:char) -&amp;gt; Option&amp;lt;Token&amp;gt;{ match c{ &amp;#39;+&amp;#39; =&amp;gt; Some(Token::Inc), &amp;#39;-&amp;#39; =&amp;gt; Some(Token::Dec), &amp;#39;&amp;gt;&amp;#39; =&amp;gt; Some(Token::IncPtr), &amp;#39;&amp;lt;&amp;#39; =&amp;gt; Some(Token::DecPtr), &amp;#39;[&amp;#39; =&amp;gt; Some(Token::StartLoop), &amp;#39;]&amp;#39; =&amp;gt; Some(Token::EndLoop), &amp;#39;,&amp;#39; =&amp;gt; Some(Token::Input), &amp;#39;.&amp;#39; =&amp;gt; Some(Token::Output), _ =&amp;gt; None, } } fn tokenize_from_array(char_array: Vec&amp;lt;char&amp;gt;)-&amp;gt;Vec&amp;lt;Token&amp;gt;{ let mut token_array: Vec&amp;lt;Token&amp;gt; = Vec::new(); for token in char_array.</description></item><item><title>Notepad++の64bit版でメモ帳を置き換える際の注意点</title><link>https://clutte.red/blog/2019/06/replace-notepad-to-npp/</link><pubDate>Sat, 22 Jun 2019 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2019/06/replace-notepad-to-npp/</guid><description>tepad++はv7.5.9より、Windows標準のメモ帳を「置き換える」((正確にはメモ帳を起動しようとするとメモ帳の代わりにNotepad++が立ち上がる))ことが可能になっている。
 参考：
 「メモ帳」として起動できるようになった無料テキストエディター「Notepad++」v7.5.9／「メモ帳」に関連付けられたファイルを「Notepad++」で開くことが可能 https://t.co/anniPJyZQl pic.twitter.com/99n3kwKoMK
-&amp;mdash; 窓の杜 (@madonomori) October 16, 2018  しかし、公式サイトやそれを継承した窓の杜の記事の方法は32bit版のものであり、64bit版を使用している場合は失敗してしまう1ので注意が必要
+&amp;mdash; 窓の杜 (@madonomori) October 16, 2018 しかし、公式サイトやそれを継承した窓の杜の記事の方法は32bit版のものであり、64bit版を使用している場合は失敗してしまう1ので注意が必要
 具体的には、公式サイトで紹介されている
 reg add &amp;quot;HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&amp;quot; /v &amp;quot;Debugger&amp;quot; /t REG_SZ /d &amp;quot;\&amp;quot;%ProgramFiles(x86)%\Notepad++\notepad++.exe\&amp;quot; -notepadStyleCmdline -z&amp;quot; /f では、Notepad++のインストール先として32bit版のそれであるProgram Files(x86)フォルダが指定されている。それを64bit版に書き換えて
 reg add &amp;quot;HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&amp;quot; /v &amp;quot;Debugger&amp;quot; /t REG_SZ /d &amp;quot;\&amp;quot;%ProgramFiles%\Notepad++\notepad++.exe\&amp;quot; -notepadStyleCmdline -z&amp;quot; /f とする。 そして上記コマンドを管理者権限のコマンドプロンプトで実行すれば、無事置き換えが完了する。
-  メモ帳を起動しようとするとnotepad++.exeが見つからない旨のエラーが発生する。 &amp;#x21a9;&amp;#xfe0e;
-   </description>
-    </item>
-    
-    <item>
-      <title>JavascriptでYYYY/MM/DDみたいな形式で出力＋日本語の曜日を手軽に出力</title>
-      <link>https://clutte.red/blog/2019/06/javascript-formatted-date/</link>
-      <pubDate>Thu, 20 Jun 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2019/06/javascript-formatted-date/</guid>
-      <description>月や日付を2ケタに揃えて出したり、曜日を漢字1字で出したりする。 割とよく使うコードなのでsnippet的に。
+メモ帳を起動しようとするとnotepad++.exeが見つからない旨のエラーが発生する。 &amp;#x21a9;&amp;#xfe0e;</description></item><item><title>JavascriptでYYYY/MM/DDみたいな形式で出力＋日本語の曜日を手軽に出力</title><link>https://clutte.red/blog/2019/06/javascript-formatted-date/</link><pubDate>Thu, 20 Jun 2019 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2019/06/javascript-formatted-date/</guid><description>月や日付を2ケタに揃えて出したり、曜日を漢字1字で出したりする。 割とよく使うコードなのでsnippet的に。
 var today = new Date(); var year = (today.getFullYear()).toString(); var month = (&amp;#34;0&amp;#34; + (today.getMonth()+1).toString()).slice(-2); var date = (&amp;#34;0&amp;#34; + today.getDate().toString()).slice(-2); var dayOfWeek = &amp;#34;日月火水木金土&amp;#34;.slice(today.getDay(), today.getDay() + 1); console.log( year + &amp;#34;年&amp;#34; + month + &amp;#34;月&amp;#34; + date + &amp;#34;日（&amp;#34; + dayOfWeek + &amp;#34;）&amp;#34; ); のようにしてやると
 2019年06月20日（木） のように出力される。
-ドメイン期限切れのアラートメールが届くまで、このブログの存在を完全に忘れていた。完全な三日坊主である。</description>
-    </item>
-    
-    <item>
-      <title>LaTeXでパワポみたいなハンドアウト（配布資料）を作る</title>
-      <link>https://clutte.red/blog/2018/11/latex-handout/</link>
-      <pubDate>Sun, 11 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2018/11/latex-handout/</guid>
-      <description>プレゼンテーションの際にPowerPointではハンドアウトとして1枚の紙に4枚や6枚などのスライドを印刷したものを配ることが多い． BeamerなどLaTeXでスライドを作成している場合も，そういったPowerPointのようなハンドアウトもできればLaTeXで作りたい． そういう時の解決法．
+ドメイン期限切れのアラートメールが届くまで、このブログの存在を完全に忘れていた。完全な三日坊主である。</description></item><item><title>LaTeXでパワポみたいなハンドアウト（配布資料）を作る</title><link>https://clutte.red/blog/2018/11/latex-handout/</link><pubDate>Sun, 11 Nov 2018 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2018/11/latex-handout/</guid><description>プレゼンテーションの際にPowerPointではハンドアウトとして1枚の紙に4枚や6枚などのスライドを印刷したものを配ることが多い． BeamerなどLaTeXでスライドを作成している場合も，そういったPowerPointのようなハンドアウトもできればLaTeXで作りたい． そういう時の解決法．
 pdfpagesパッケージを使ってスライドのPDF（下記のコードではmain.pdf）を読み込んで配置する．
 \documentclass[dvipdfmx,uplatex,a4j,landscape]{jsarticle} \usepackage[top=12.7truemm,bottom=12.7truemm,left=12.7truemm,right=12.7truemm,landscape]{geometry} \usepackage{pdfpages} \begin{document} \includepdf[pages=-,nup=2x2,frame,noautoscale,delta=5mm 8mm]{main.pdf} %横に2x2の4枚 \end{document} こんな感じのLaTeX文書を書くと
- こんな感じのハンドアウトができる．
-簡単に解説すると，\includepdfのnupオプションで並べる枚数（ここでは2x2の4枚）を指定し，frameオプションで枠を付け，noautoscaleおよびdeltaオプションで各スライド間の余白を作っている．</description>
-    </item>
-    
-    <item>
-      <title>LaTeXで目次にページ番号のない独自項目を追加する</title>
-      <link>https://clutte.red/blog/2018/11/latex-addcontentsline-without-page-no/</link>
-      <pubDate>Sat, 10 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2018/11/latex-addcontentsline-without-page-no/</guid>
-      <description>一般的にLaTeXで目次に独自の項目を追加するには，\addcontentslineを用いるのが一般的である． しかしこのやり方では，ページ番号が自動的に付加されてしまう．これはページ番号を出力したくない場合には不便である．そういう時の解決法．
+こんな感じのハンドアウトができる．
+簡単に解説すると，\includepdfのnupオプションで並べる枚数（ここでは2x2の4枚）を指定し，frameオプションで枠を付け，noautoscaleおよびdeltaオプションで各スライド間の余白を作っている．</description></item><item><title>LaTeXで目次にページ番号のない独自項目を追加する</title><link>https://clutte.red/blog/2018/11/latex-addcontentsline-without-page-no/</link><pubDate>Sat, 10 Nov 2018 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2018/11/latex-addcontentsline-without-page-no/</guid><description>一般的にLaTeXで目次に独自の項目を追加するには，\addcontentslineを用いるのが一般的である． しかしこのやり方では，ページ番号が自動的に付加されてしまう．これはページ番号を出力したくない場合には不便である．そういう時の解決法．
 \usepackage{tocloft} した上で
-\cftaddtitleline{toc}{section}{\numberline{番号}{セクション名}{} すると\addcontentsするよりも楽．</description>
-    </item>
-    
-    <item>
-      <title>LaTeXでテーブル（表）のキャプションをカスタマイズする</title>
-      <link>https://clutte.red/blog/2018/11/latex-table-caption/</link>
-      <pubDate>Fri, 09 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2018/11/latex-table-caption/</guid>
-      <description>LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．
+\cftaddtitleline{toc}{section}{\numberline{番号}{セクション名}{} すると\addcontentsするよりも楽．</description></item><item><title>LaTeXでテーブル（表）のキャプションをカスタマイズする</title><link>https://clutte.red/blog/2018/11/latex-table-caption/</link><pubDate>Fri, 09 Nov 2018 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2018/11/latex-table-caption/</guid><description>LaTeXの表（table環境）でキャプションを左寄せにするなど，カスタマイズする方法について．
 具体的には
- こういう表を
- こんな感じにしたい． （例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）
+こういう表を
+こんな感じにしたい． （例としてキャプションを左寄せ，「表2」を太字にしてその後にピリオドを付加）
 解決法 threeparttableパッケージと captionパッケージを使用する． どちらもTeXLiveにはデフォルトで入ってるはず．
 \documentclass[uplatex,a4j]{jsarticle} \usepackage{threeparttable} \usepackage{caption} \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} \begin{document} \begin{table}[ht] \centering \begin{threeparttable} \caption{キャプションが左寄せの表} \begin{tabular}{|l|l|l|l|} \hline ほげほげほげ &amp;amp; ほげほげほげ &amp;amp; ほげほげほげ &amp;amp; ほげほげほげ \\ \hline ああああ &amp;amp; いいいい &amp;amp; うううう &amp;amp; ええええ \\ \hline \end{tabular} \end{threeparttable} \end{table} \end{document} こんな感じ．
 キャブションをカスタマイズするには
 \captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off} の部分をいじれば良い．簡単に解説すると
- labelsep:
+labelsep:
 「表n」部分とそれ以降のテキスト部分の間を何で区切るか．period(ピリオド)以外にもspace(スペース)，colon(コロン)，newline(改行)などがある． labelfont:
-「表n」部分のフォントをどうするか．bf(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合はfontを，テキスト部分のみ変えたい場合はtextfontを使う． justification:</description>
-    </item>
-    
-    <item>
-      <title>LaTeXでビジネス文書を書く</title>
-      <link>https://clutte.red/blog/2018/11/writing-japanese-business-documents-in-latex/</link>
-      <pubDate>Mon, 05 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2018/11/writing-japanese-business-documents-in-latex/</guid>
-      <description>LaTeXでビジネス文章を書くためのテンプレート的な，ちょっとしたスタイルファイルを書いた1．
+「表n」部分のフォントをどうするか．bf(太字)以外にも斜体にしたりフォントサイズを変えたり色々できる．テキスト部分も一緒に変えたい場合はfontを，テキスト部分のみ変えたい場合はtextfontを使う． justification:</description></item><item><title>LaTeXでビジネス文書を書く</title><link>https://clutte.red/blog/2018/11/writing-japanese-business-documents-in-latex/</link><pubDate>Mon, 05 Nov 2018 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2018/11/writing-japanese-business-documents-in-latex/</guid><description>LaTeXでビジネス文章を書くためのテンプレート的な，ちょっとしたスタイルファイルを書いた1．
 スタイルファイルの詳細やダウンロード等はGitHubへ．
 \documentclass[uplatex,a4j,fleqn,12pt]{jsarticle} \usepackage[top=35.01truemm,bottom=30truemm,left=30truemm,right=30truemm]{geometry} \usepackage{jbusinessdoc} %\documentnumber{文章番号第42号} \date{平成yy年mm月dd日} \destination{○○株式会社\\ご担当者様} \author{××株式会社\\ほげほげ} \title{ほげほげのご案内} \begin{document} \maketitle \begin{haikei} 時下ますますご清栄のこととお喜び申し上げます。 平素はひとかたならぬお引き立てを賜り、厚く御礼申し上げます。 さて、このたび弊社ではほげほげがふがふがとなりました。 つきましては、ほげほげの程よろしくお願い申し上げます。 \end{haikei} \begin{kigaki} \begin{itemize} \item 日時：いつか \item 会場：どっか \end{itemize} \end{kigaki} \end{document} こんな感じでLaTeX文書を書くと
-ビジネス文章っぽい こんな感じで出力される．
+ビジネス文章っぽい こんな感じで出力される．
 「こういうビジネス文書を作りたいけどWordは使いたくない，できればLaTeXで書きたい」って人は意外と多いんじゃないかと思ってググったけど，それらしいノウハウがあまり出てこなかったので．
-  正確に言えば以前必要に迫られて書いたものを，せっかく始めたブログのネタにでもと思いスタイルファイルとして独立させた． &amp;#x21a9;&amp;#xfe0e;
-   </description>
-    </item>
-    
-    <item>
-      <title>Hello, Cluttered World!</title>
-      <link>https://clutte.red/blog/2018/11/hello-world/</link>
-      <pubDate>Sun, 04 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://clutte.red/blog/2018/11/hello-world/</guid>
-      <description>なんとなくブログもどきを作ってみた。
-面白ドメインを探していたら「clutte.red」（cluttered = 雑然とした・散らかった）というドメインを取ってしまったのと、ちょっとした知見等を誰かのために共有する場所があれば良いなあと以前から思っていたので。</description>
-    </item>
-    
-  </channel>
-</rss>
+正確に言えば以前必要に迫られて書いたものを，せっかく始めたブログのネタにでもと思いスタイルファイルとして独立させた． &amp;#x21a9;&amp;#xfe0e;</description></item><item><title>Hello, Cluttered World!</title><link>https://clutte.red/blog/2018/11/hello-world/</link><pubDate>Sun, 04 Nov 2018 00:00:00 +0900</pubDate><guid>https://clutte.red/blog/2018/11/hello-world/</guid><description>なんとなくブログもどきを作ってみた。
+面白ドメインを探していたら「clutte.red」（cluttered = 雑然とした・散らかった）というドメインを取ってしまったのと、ちょっとした知見等を誰かのために共有する場所があれば良いなあと以前から思っていたので。</description></item></channel></rss>
