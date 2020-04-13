@@ -1,14 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gadgets on Cluttered Room</title><link>https://clutte.red/tags/gadgets/</link><description>Recent content in Gadgets on Cluttered Room</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 13 Apr 2020 00:42:51 +0900</lastBuildDate><atom:link href="https://clutte.red/tags/gadgets/index.xml" rel="self" type="application/rss+xml"/><item><title>HHKB Professional HYBRID Type-Sを買った</title><link>https://clutte.red/blog/2020/04/bought-new-hhkb/</link><pubDate>Mon, 13 Apr 2020 00:42:51 +0900</pubDate><guid>https://clutte.red/blog/2020/04/bought-new-hhkb/</guid><description>1ヶ月ほど前にHappy Hacking Keyboard (HHKB) Professional HYBRID Type-Sを買った。
-購入に至る経緯 自分は今まで仕事ではHHKB Professional2 Type-Sを、 自宅ではMajestouch MINILA Airを使っていた。
-そんな中、昨今のリモートワークの流れで、自分も自宅で仕事をせざるを得なくなった。 そこで「いつもやっている仕事は、やはりHHKBでやりたい」ということで、自宅にHHKBを持ち帰った。
-ところが、リモートワークを初めて1週間経たないうちにHHKBにコーヒーをこぼしてしまった。 表面上の被害は軽微だったように見えたため、軽く拭き取ってそのままにしていたのだが、しばらくするとHHKBが誤作動1するようになってしまった。
-慌てて中の基板を確かめたところ、基板までコーヒーが浸水してしまっており、 どうやらそれが原因で基板が駄目になってしまったようだった2。
-調べたところ、HHKBは公式では修理を行っていないらしい。 エンジニアの自分にとってキーボードは商売道具と言っても過言ではないため相当ヘコんだが、 去年の12月にHHKBの新シリーズ「HYBRID」が発売されていたことを知っていたため、そちらの購入を決意した。
-購入した理由としては以下の通りである。
-HHKBの打鍵感は他のキーボードの追随を許さない唯一無二のものであると考えていること。 HYBRIDはキーマッピングのカスタマイズができる点がウリの1つであったこと 1ヶ月ほど使用してみた感想 打鍵感はほぼ期待通りであった。旧HHKB（自分が持っているProfessional2 Type-S）と比較すると、やや打鍵感が異なるように思え、若干疲れやすくなった気がしないでもない。 しかし、それでも他のキーボードよりも優れているとは思う。
-Bluetooth接続は問題なく機能している。最大4台の接続情報を記憶しておき、Fn + Ctrl + 1～4 キーで接続を切り替えられるのも便利である。
-キーマッピングに関してはかなり期待していたのだが、やや期待はずれであった（後述）。
-キーマッピング 現在の自分の Fn レイヤーのキーマッピングはこんな感じである。通常レイヤーは変更点は無い。
-概要としては
-左手のホームポジション周辺 E, S, D, F キーにそれぞれカーソルキーを配置。これはMajestouch MINILAがこの設定であり、右端にあるHHKBよりも便利だからである。 HHKB本来のカーソルキーもよく使用するため、そのまま残した。 カーソルキーの右上と左上には PgUp, PgDn キーを配置。これは自分が好きなThinkPadシリーズのキー配列がこうなっており、便利だからである。 右手のホームポジション周辺 H, J, KにそれぞれBS,Ent,Delキーを配置。よく使うキーにも関わらず、ホームポジションから遠い位置にあるのが気に入らなかったためである。 こんな感じ。
-キーマッピングの問題点 右Fnキー、Controlキー、Qキーなど、一部のキーはキーマッピングを設定できない。 これらの設定を変更できないキーはソフトウェア上で「☒」アイコンになっているが、それ以外にもZ キーなど、 一見すると設定変更可能であるように見えるキーの中に、なぜか設定変更できないキーが存在する。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gadgets on Cluttered Room</title><link>https://clutte.red/tags/gadgets/</link><description>Recent content in Gadgets on Cluttered Room</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 13 Apr 2020 00:42:51 +0900</lastBuildDate><atom:link href="https://clutte.red/tags/gadgets/index.xml" rel="self" type="application/rss+xml"/><item><title>HHKB Professional HYBRID Type-Sを買った</title><link>https://clutte.red/blog/2020/04/bought-new-hhkb/</link><pubDate>Mon, 13 Apr 2020 00:42:51 +0900</pubDate><guid>https://clutte.red/blog/2020/04/bought-new-hhkb/</guid><description>&lt;p>1ヶ月ほど前に&lt;a href="https://www.pfu.fujitsu.com/direct/hhkb/detail_pd-kb800ws.html" target="_blank">Happy Hacking Keyboard (HHKB) Professional HYBRID Type-S&lt;/a>を買った。
+なので買った経緯とか1ヶ月使った感想とか現在のキーマッピングとかをメモしていきたい。&lt;/p></description></item></channel></rss>
