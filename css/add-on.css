@@ -55,7 +55,9 @@ code {
   margin: 0.5em auto;
   font-size: .8em;
 }
-
+.footnotes{
+  font-size: .7em;
+}
 .post>footer .stats li ul li a {
   overflow: visible;
   white-space: nowrap;
