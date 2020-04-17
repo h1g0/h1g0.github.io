@@ -18,7 +18,7 @@
 <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
     <span style=color:#66d9ef>let</span> txt <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;東海の小島の磯の白砂にわれ泣きぬれて蟹とたはむる&#34;</span>;
 
-    <span style=color:#66d9ef>let</span> bytes <span style=color:#f92672>=</span> include_bytes<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;..\\..\\sudachi.rs\\src\\resources\\system.dic&#34;</span>);
+    <span style=color:#66d9ef>let</span> bytes <span style=color:#f92672>=</span> include_bytes<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;../../sudachi.rs/src/resources/system.dic&#34;</span>);
     <span style=color:#66d9ef>let</span> tokenizer <span style=color:#f92672>=</span> Tokenizer::new(bytes);
 
     <span style=color:#66d9ef>let</span> morpheme_list <span style=color:#f92672>=</span> tokenizer.tokenize(<span style=color:#f92672>&amp;</span>String::from(txt), <span style=color:#f92672>&amp;</span>Mode::C, <span style=color:#66d9ef>false</span>);
