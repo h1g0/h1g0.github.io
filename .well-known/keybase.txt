@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/h_g
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://clutte.red
+  * I am h_g (https://keybase.io/h_g) on keybase.
+  * I have a public key ASBQXGXyhLXxO-BbvXhWVnK6hMWy-VUrshudLtvzMf7kzwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01207cb7e1cb86af95607ae2876884a9b96f2a49fafbc115b10e7e1a2f4ec78aea6a0a",
+      "host": "keybase.io",
+      "kid": "0120505c65f284b5f13be05bbd78565672ba84c5b2f9552bb21b9d2edbf331fee4cf0a",
+      "uid": "3feafb941642eabfe9de1db76aeacd19",
+      "username": "h_g"
+    },
+    "merkle_root": {
+      "ctime": 1634893133,
+      "hash": "aba6960414a2b44d2c310ab30cc0a8f6014754ca270348dc68efd1332f2a9a20daea0ad10f32312efefd0aa58efd72af8caf92b735f288a600a9c428cdcb1307",
+      "hash_meta": "0cc411bcf502ac83162423c8f74eabc710785f7c5f4fb38ef2a3efe1056f147c",
+      "seqno": 21039023
+    },
+    "service": {
+      "entropy": "QA2pjhh0Uzr2qlOlgmbofhBe",
+      "hostname": "clutte.red",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.8.0"
+  },
+  "ctime": 1634893183,
+  "expire_in": 504576000,
+  "prev": "74636703d1bceea4697c527f0e7baeab3bb203de7efbd6d46be0edc484a00ba7",
+  "seqno": 29,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgUFxl8oS18TvgW714VlZyuoTFsvlVK7IbnS7b8zH+5M8Kp3BheWxvYWTESpcCHcQgdGNnA9G87qRpfFJ/DnuuqzuyA95++9bUa+DtxISgC6fEIL2WXL9rDs7JClLBGYFS9oFb8Tg0abemVv6WF0x6+7FLAgHCo3NpZ8RAjviAFDc0I9226l5Nc+yDDu6OKgBCRaIzPLW6eCNiIpXZ9YY0BH8a8wU1Vxj1EoN2rFwCaVUZ90KXZLUwgI/5DKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIIf8KmqURnpSqYfHGkjEj65Q5l/+vUUuRfrEXuC7cRq1o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/h_g
+
+==================================================================
