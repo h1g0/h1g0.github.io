@@ -1,33 +1,139 @@
-<!doctype html><html lang=ja><head><meta charset=utf-8><title>sudachi.rsを使って遊んでみる（ための下準備） - Cluttered Room</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.80.0"><meta itemprop=name content="sudachi.rsを使って遊んでみる（ための下準備）"><meta itemprop=description content="sudachi.rsという、Rustで実装された形態素解析器がある。それをライブラリとして何か書いて遊ぶための下準備的なメモ。"><meta itemprop=datePublished content="2020-04-16T23:52:11+09:00"><meta itemprop=dateModified content="2020-04-16T23:52:11+09:00"><meta itemprop=wordCount content="1181"><meta itemprop=keywords content="Rust,自然言語処理,sudachi,"><meta property="og:title" content="sudachi.rsを使って遊んでみる（ための下準備）"><meta property="og:description" content="sudachi.rsという、Rustで実装された形態素解析器がある。それをライブラリとして何か書いて遊ぶための下準備的なメモ。"><meta property="og:type" content="article"><meta property="og:url" content="https://clutte.red/blog/2020/04/play-with-sudachi-rs/"><meta property="article:published_time" content="2020-04-16T23:52:11+09:00"><meta property="article:modified_time" content="2020-04-16T23:52:11+09:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="sudachi.rsを使って遊んでみる（ための下準備）"><meta name=twitter:description content="sudachi.rsという、Rustで実装された形態素解析器がある。それをライブラリとして何か書いて遊ぶための下準備的なメモ。"><link rel=stylesheet href=/css/bundle.min.052e421210693fe08075e9da2a349c35e1cae3cd8e8c3301d62d9d41f9ab9221.css integrity="sha256-BS5CEhBpP+CAdenaKjScNeHK482OjDMB1i2dQfmrkiE="><link rel=stylesheet href=/css/add-on.css><link rel=stylesheet href=/css/syntax.css></head><body><header id=site-header><nav id=site-nav><h1 class=nav-title><a href=/>Cluttered Room</a></h1><menu id=site-nav-menu class=flyout-menu><a href=/ class=link><i class="fa fa-home"></i>Home</a>
-<a href=/about/ class=link><i class="far fa-id-card"></i>About</a>
-<a href=/blog/ class=link><i class="far fa-newspaper"></i>Blog</a>
-<a href=/categories/ class=link><i class="fas fa-sitemap"></i>Categories</a>
-<a href=#share-menu class=share-toggle><i class="fas fa-share-alt">&nbsp;</i>Share</a></menu>
-<a href=#share-menu class=share-toggle><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
-<a href=#site-nav class=nav-toggle><i class="fas fa-bars fa-2x"></i></a></nav><menu id=share-menu class=flyout-menu><h1>Share Post</h1><a href="//twitter.com/share?text=sudachi.rs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e9%81%8a%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%88%e3%81%9f%e3%82%81%e3%81%ae%e4%b8%8b%e6%ba%96%e5%82%99%ef%bc%89&url=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank rel=noopener class="share-btn twitter"><i class="fab fa-twitter"></i><p>&nbsp;Twitter</p></a><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank rel=noopener class="share-btn facebook"><i class="fab fa-facebook"></i><p>&nbsp;Facebook</p></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f&title=sudachi.rs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e9%81%8a%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%88%e3%81%9f%e3%82%81%e3%81%ae%e4%b8%8b%e6%ba%96%e5%82%99%ef%bc%89" target=_blank rel=noopener class="share-btn linkedin"><i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p></a><a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&body=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank class="share-btn email" data-proofer-ignore><i class="fas fa-envelope"></i><p>&nbsp;Email</p></a></menu></header><div id=wrapper><section id=site-intro class=hidden-single-column><a href=/><img src=/img/main/logo.jpg class=circle width=128 alt="Cluttered Room"></a><header><h1>Cluttered Room</h1></header><main><p>雑然とした部屋</p></main><footer><ul class=socnet-icons><li><a href=//github.com/h1g0 target=_blank rel=noopener title=GitHub class="fab fa-github"></a></li><li><a href=mailto:me%ef%bc%88%e3%81%82%e3%81%a3%e3%81%a8%ef%bc%89clutte.red target=_blank title=Email class="far fa-envelope"></a></li></ul></footer></section><main id=site-main><article class=post><header><div class=title><h2><a href=/blog/2020/04/play-with-sudachi-rs/>sudachi.rsを使って遊んでみる（ための下準備）</a></h2></div><div class=meta><time class=published datetime="2020-04-16 23:52:11 +0900 +0900">2020-04-16</time>
-<span class=author></span><p>3分で読めます</p></div></header><section id=socnet-share><a href="//twitter.com/share?text=sudachi.rs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e9%81%8a%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%88%e3%81%9f%e3%82%81%e3%81%ae%e4%b8%8b%e6%ba%96%e5%82%99%ef%bc%89&url=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank rel=noopener class="share-btn twitter"><i class="fab fa-twitter"></i><p>&nbsp;Twitter</p></a><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank rel=noopener class="share-btn facebook"><i class="fab fa-facebook"></i><p>&nbsp;Facebook</p></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f&title=sudachi.rs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e9%81%8a%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%88%e3%81%9f%e3%82%81%e3%81%ae%e4%b8%8b%e6%ba%96%e5%82%99%ef%bc%89" target=_blank rel=noopener class="share-btn linkedin"><i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p></a><a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&body=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank class="share-btn email" data-proofer-ignore><i class="fas fa-envelope"></i><p>&nbsp;Email</p></a></section><div class=content><p><a href=https://github.com/sorami/sudachi.rs target=_blank>sudachi.rs</a>という、Rustで実装された形態素解析器がある。それをライブラリとして何か書いて遊ぶための下準備的なメモ。</p><h2 id=sudachirsとは>sudachi.rsとは</h2><p><a href=https://github.com/WorksApplications/Sudachi target=_blank>Sudachi</a>という形態素解析器（実装はJava）のRustによる非公式クローン。
-詳しくは<a href=https://qiita.com/sorami/items/7934fec2074c493c0f7d target=_blank>作者の方のブログエントリ</a>を参照してほしい。</p><p>Sudachiには他にも<a href=https://github.com/WorksApplications/SudachiPy target=_blank>Pythonによる実装（公式）</a>や<a href=https://github.com/msnoigrs/gosudachi target=_blank>Goによる実装（非公式）</a>があるようだ。</p><h2 id=実際に遊んで見る>実際に遊んで見る</h2><p><code>sudachi.rs</code>はまだ<a href=https://crates.io/ target=_blank>crates.io</a>に登録されていない<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>。
-そのため、自分でソースコードを<code>clone</code>しておく必要がある。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone https://github.com/sorami/sudachi.rs.git
-</code></pre></div><p>また、辞書を<a href=https://github.com/WorksApplications/SudachiDict target=_blank>こちら</a>からダウンロードして展開しておく。</p><p>辞書の配置ディレクトリは（プログラムから呼べる場所であれば）どこでも良いが、ここではsudachi.rsのREADMEに従って<code>sudachi.rs/src/resources/system.dic</code>とした。</p><p>次に、先程<code>sudachi.rs</code>をクローンしたのと同じディレクトリで</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cargo new --bin sudachi_test
-</code></pre></div><p>こんな感じで、適当な名前で新しいプロジェクトを作る。</p><p>そしたら中の<code>Cargo.toml</code>に</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml>[<span style=color:#a6e22e>dependencies</span>.<span style=color:#a6e22e>sudachi</span>]
+<!doctype html><html lang=ja>
+<head>
+<meta charset=utf-8>
+<title>sudachi.rsを使って遊んでみる（ための下準備） - Cluttered Room</title>
+<meta name=description content="技術系の話題を中心に、残しておきたいメモとか「とりあえず書いておけば誰かの役に立つかもしれない」小さなノウハウなどを書き留めておくサイトです。">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=twitter:card content="summary_large_image">
+<meta property="og:site_name" content="Cluttered Room">
+<meta property="og:title" content="sudachi.rsを使って遊んでみる（ための下準備）">
+<meta property="og:description" content="技術系の話題を中心に、残しておきたいメモとか「とりあえず書いておけば誰かの役に立つかもしれない」小さなノウハウなどを書き留めておくサイトです。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clutte.red/blog/2020/04/play-with-sudachi-rs/">
+<meta property="og:image" content="https://clutte.red/img/main/logo.jpg">
+<link rel="shortcut icon" href="/favicon.ico?v=1">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=/css/bundle.min.3b1b5f2e683d24b1ea3b5a08c8254622e40aa935e0ead75ba6d45c0f14c2f965.css integrity="sha256-OxtfLmg9JLHqO1oIyCVGIuQKqTXg6tdbptRcDxTC+WU="><link rel=stylesheet href=/css/add-on.css>
+<link rel=stylesheet href=/css/syntax.css>
+</head>
+<body>
+<header id=site-header>
+<nav id=site-nav>
+<h1 class=nav-title>
+<a href=/ class=nav>
+Cluttered Room
+</a>
+</h1>
+<menu id=site-nav-menu class="flyout-menu menu">
+<a href=/ class="nav link"><i class="fa fa-home"></i> Home</a>
+<a href=/about/ class="nav link"><i class="far fa-id-card"></i> About</a>
+<a href=/blog/ class="nav link"><i class="far fa-newspaper"></i> Blog</a>
+<a href=/categories/ class="nav link"><i class="fas fa-sitemap"></i> Categories</a>
+<a href=#share-menu class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+<a href=#search-input class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+</menu>
+<a href=#search-input class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+<a href=#share-menu class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+<a href=#site-nav class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+</nav>
+<menu id=search class=menu><input id=search-input class="search-input menu"></input><div id=search-results class="search-results menu"></div></menu>
+<menu id=share-menu class="flyout-menu menu">
+<h1>Share Post</h1>
+<a href="//twitter.com/share?text=sudachi.rs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e9%81%8a%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%88%e3%81%9f%e3%82%81%e3%81%ae%e4%b8%8b%e6%ba%96%e5%82%99%ef%bc%89&url=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank rel=noopener class="nav share-btn twitter">
+<p>Twitter</p>
+</a>
+<a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank rel=noopener class="nav share-btn facebook">
+<p>Facebook</p>
+</a>
+<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f&title=sudachi.rs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e9%81%8a%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%88%e3%81%9f%e3%82%81%e3%81%ae%e4%b8%8b%e6%ba%96%e5%82%99%ef%bc%89" target=_blank rel=noopener class="nav share-btn linkedin">
+<p>LinkedIn</p>
+</a>
+<a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&body=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank class="nav share-btn email" data-proofer-ignore>
+<p>Email</p>
+</a>
+</menu>
+</header>
+<div id=wrapper>
+<section id=site-intro class=hidden-single-column>
+<a href=/><img src=/img/main/logo.jpg class=circle width=128 alt="Cluttered Room"></a>
+<header>
+<h1>Cluttered Room</h1>
+</header>
+<main>
+<p>雑然とした部屋</p>
+</main>
+<footer>
+<ul class=socnet-icons>
+<li><a href=//github.com/h1g0 target=_blank rel=noopener title=GitHub class="fab fa-github"></a></li>
+<li><a href=mailto:me%ef%bc%88%e3%81%82%e3%81%a3%e3%81%a8%ef%bc%89clutte.red target=_blank title=Email class="far fa-envelope"></a></li>
+</ul>
+</footer>
+</section>
+<main id=site-main>
+<article>
+<div class=post>
+<header>
+<div class=title>
+<h2><a href=/blog/2020/04/play-with-sudachi-rs/>sudachi.rsを使って遊んでみる（ための下準備）</a></h2>
+</div>
+<div class=meta>
+<time datetime="2020-04-16 23:52:11 +0900 +0900">2020-04-16</time>
+<p>3 分で読めます</p>
+</div>
+</header>
+<div id=socnet-share>
+<a href="//twitter.com/share?text=sudachi.rs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e9%81%8a%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%88%e3%81%9f%e3%82%81%e3%81%ae%e4%b8%8b%e6%ba%96%e5%82%99%ef%bc%89&url=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank rel=noopener class="nav share-btn twitter">
+<p>Twitter</p>
+</a>
+<a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank rel=noopener class="nav share-btn facebook">
+<p>Facebook</p>
+</a>
+<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f&title=sudachi.rs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e9%81%8a%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%88%e3%81%9f%e3%82%81%e3%81%ae%e4%b8%8b%e6%ba%96%e5%82%99%ef%bc%89" target=_blank rel=noopener class="nav share-btn linkedin">
+<p>LinkedIn</p>
+</a>
+<a href="mailto:?subject=%e3%81%93%e3%81%ae%e6%8a%95%e7%a8%bf%e3%82%92%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%99%e3%82%8b %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&body=https%3a%2f%2fclutte.red%2fblog%2f2020%2f04%2fplay-with-sudachi-rs%2f" target=_blank class="nav share-btn email" data-proofer-ignore>
+<p>Email</p>
+</a>
+</div>
+<div class=content>
+<p><a href=https://github.com/sorami/sudachi.rs target=_blank>sudachi.rs</a>という、Rustで実装された形態素解析器がある。それをライブラリとして何か書いて遊ぶための下準備的なメモ。</p>
+<h2 id=sudachirsとは>sudachi.rsとは</h2>
+<p><a href=https://github.com/WorksApplications/Sudachi target=_blank>Sudachi</a>という形態素解析器（実装はJava）のRustによる非公式クローン。
+詳しくは<a href=https://qiita.com/sorami/items/7934fec2074c493c0f7d target=_blank>作者の方のブログエントリ</a>を参照してほしい。</p>
+<p>Sudachiには他にも<a href=https://github.com/WorksApplications/SudachiPy target=_blank>Pythonによる実装（公式）</a>や<a href=https://github.com/msnoigrs/gosudachi target=_blank>Goによる実装（非公式）</a>があるようだ。</p>
+<h2 id=実際に遊んで見る>実際に遊んで見る</h2>
+<p><code>sudachi.rs</code>はまだ<a href=https://crates.io/ target=_blank>crates.io</a>に登録されていない<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>。
+そのため、自分でソースコードを<code>clone</code>しておく必要がある。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone https://github.com/sorami/sudachi.rs.git
+</code></pre></div><p>また、辞書を<a href=https://github.com/WorksApplications/SudachiDict target=_blank>こちら</a>からダウンロードして展開しておく。</p>
+<p>辞書の配置ディレクトリは（プログラムから呼べる場所であれば）どこでも良いが、ここではsudachi.rsのREADMEに従って<code>sudachi.rs/src/resources/system.dic</code>とした。</p>
+<p>次に、先程<code>sudachi.rs</code>をクローンしたのと同じディレクトリで</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cargo new --bin sudachi_test
+</code></pre></div><p>こんな感じで、適当な名前で新しいプロジェクトを作る。</p>
+<p>そしたら中の<code>Cargo.toml</code>に</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml>[<span style=color:#a6e22e>dependencies</span>.<span style=color:#a6e22e>sudachi</span>]
 <span style=color:#a6e22e>path</span> = <span style=color:#e6db74>&#34;../sudachi.rs/&#34;</span>
-</code></pre></div><p>こんな感じでsudachi.rsへの相対パスを教えてやる。</p><p>そして<code>src/main.rs</code>を開き、</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=color:#66d9ef>extern</span> <span style=color:#66d9ef>crate</span> sudachi;
+</code></pre></div><p>こんな感じでsudachi.rsへの相対パスを教えてやる。</p>
+<p>そして<code>src/main.rs</code>を開き、</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=color:#66d9ef>extern</span> <span style=color:#66d9ef>crate</span> sudachi;
 <span style=color:#66d9ef>use</span> sudachi::tokenizer::Mode;
 <span style=color:#66d9ef>use</span> sudachi::tokenizer::Tokenizer;
 
 <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
     <span style=color:#66d9ef>let</span> txt <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;東海の小島の磯の白砂にわれ泣きぬれて蟹とたはむる&#34;</span>;
 
-    <span style=color:#66d9ef>let</span> bytes <span style=color:#f92672>=</span> include_bytes<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;../../sudachi.rs/src/resources/system.dic&#34;</span>);
+    <span style=color:#66d9ef>let</span> bytes <span style=color:#f92672>=</span> include_bytes!(<span style=color:#e6db74>&#34;../../sudachi.rs/src/resources/system.dic&#34;</span>);
     <span style=color:#66d9ef>let</span> tokenizer <span style=color:#f92672>=</span> Tokenizer::new(bytes);
 
     <span style=color:#66d9ef>let</span> morpheme_list <span style=color:#f92672>=</span> tokenizer.tokenize(<span style=color:#f92672>&amp;</span>String::from(txt), <span style=color:#f92672>&amp;</span>Mode::C, <span style=color:#66d9ef>false</span>);
 
     <span style=color:#66d9ef>for</span> morpheme <span style=color:#66d9ef>in</span> morpheme_list{
-        println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;{}（{}）&#34;</span>,morpheme.surface(),morpheme.reading_form() );
+        println!(<span style=color:#e6db74>&#34;{}（{}）&#34;</span>,morpheme.surface(),morpheme.reading_form() );
     }
 }
-</code></pre></div><p>こんな感じでコードを書いてやる<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>。</p><p><code>cargo run</code>で実行すると、</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>東海（トウカイ）
+</code></pre></div><p>こんな感じでコードを書いてやる<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>。</p>
+<p><code>cargo run</code>で実行すると、</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>東海（トウカイ）
 の（ノ）
 小島（コジマ）
 の（ノ）
@@ -41,10 +147,145 @@
 蟹（カニ）
 と（ト）
 たはむる（タハムル）
-</code></pre></div><p>と、実に簡単に分かち書きと読みがなの付与ができた<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>。</p><h2 id=利用できる関数>利用できる関数</h2><p>分割された各形態素に対して利用できる関数は次の通り<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>。</p><ul><li><code>surface</code>:分割された後の形態素</li><li><code>pos</code>:その形態素に関する情報</li><li><code>normalized_form</code>: 正規化された形</li><li><code>reading_form</code>: 読みがな</li><li><code>dictionary_form</code>: 辞書形</li></ul><h2 id=ここまでの感想>ここまでの感想</h2><p>わずか数行のコードで、とても簡単にRustでの自然言語処理の第一歩を踏み出すことができた。
-ここから更に色々遊べそうである。</p><h2 id=追記>追記</h2><p><a href=https://github.com/Yasu-umi/sudachiclone-rs target=_blank>sudachiclone-rs</a>という、別の方が作成したSudachiのRustクローン<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>もあるらしい。
-そしてこちらは<a href=https://crates.io/ target=_blank>crates.io</a>に<a href=https://crates.io/crates/sudachiclone target=_blank>登録</a>されているようだ。</p><iframe style=width:120px;height:240px marginwidth=0 marginheight=0 scrolling=no frameborder=0 src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=h1g00d-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=4297105594&linkId=2adddcd9dd378709637c18e7cb460a8f"></iframe>
-<iframe style=width:120px;height:240px marginwidth=0 marginheight=0 scrolling=no frameborder=0 src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=h1g00d-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B077NSY211&linkId=bb9a7faf176e76c579c2aad4e12eed8f"></iframe><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>作者の方もissueとして認識してはいるようである。 <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>辞書ファイルへのパスが長すぎるので、置く場所を自プロジェクトのディレクトリ内にしてもよかったかもしれない。 <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3 role=doc-endnote><p>「白砂（しらすな）」を「はくしゃ」としているが、これは十分許容範囲であるように思われる。 <a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4 role=doc-endnote><p><a href=https://github.com/sorami/sudachi.rs/blob/develop/src/morpheme.rs target=_blank>https://github.com/sorami/sudachi.rs/blob/develop/src/morpheme.rs</a> <a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:5 role=doc-endnote><p>正確にはSudachiPyのRustクローン <a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><footer><ul class=stats><li class=categories><ul><li><a class=article-category-link href=https://clutte.red/categories/rust>Rust</a></li></ul></li><li class=tags><ul><li><a class=article-category-link href=https://clutte.red/tags/rust>Rust</a></li><li><a class=article-category-link href=https://clutte.red/tags/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86>自然言語処理</a></li><li><a class=article-category-link href=https://clutte.red/tags/sudachi>sudachi</a></li></ul></li></ul></footer></article><article class=post><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
-var d=document,s=d.createElement('script');s.async=true;s.src='//'+"cluttered-room"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></article><div class=pagination><a href=/blog/2020/04/bought-new-hhkb/ class=button><div class=previous><div>HHKB Professional HYBRID Type-Sを買った</div></div></a></div></main><section id=site-sidebar><section id=recent-posts><header><h1>最近の投稿</h1></header><article class=mini-post><section></section><header><h1><a href=/blog/2020/04/play-with-sudachi-rs/>sudachi.rsを使って遊んでみる（ための下準備）</a></h1><time class=published datetime>2020-04-16</time></header></article><article class=mini-post><section></section><header><h1><a href=/blog/2020/04/bought-new-hhkb/>HHKB Professional HYBRID Type-Sを買った</a></h1><time class=published datetime>2020-04-13</time></header></article><article class=mini-post><section></section><header><h1><a href=/blog/2020/04/test/>Hello, Hugo!</a></h1><time class=published datetime>2020-04-09</time></header></article><article class=mini-post><section></section><header><h1><a href=/blog/2019/10/python-filecmp-shallow/>[Python] filecmpの引数shallowの細かい仕様について</a></h1><time class=published datetime>2019-10-06</time></header></article><article class=mini-post><section></section><header><h1><a href=/blog/2019/07/rustup-inst-exe-failed-to-install/>[Rust] rustup-inst.exeでの新規インストール時に「アクセスが拒否されました。(os error 5)」が出る時の対処法</a></h1><time class=published datetime>2019-07-28</time></header></article><footer><a href=/blog/ class=button>続きを見る</a></footer></section><section id=categories><header><h1><a href=/categories>カテゴリ</a></h1></header><ul><li><a href=/categories/gadgets/>gadgets<span class=count>1</span></a><li><a href=/categories/javascript/>javascript<span class=count>1</span></a><li><a href=/categories/latex/>latex<span class=count>4</span></a><li><a href=/categories/misc/>misc<span class=count>2</span></a><li><a href=/categories/others/>others<span class=count>1</span></a><li><a href=/categories/python/>python<span class=count>1</span></a><li><a href=/categories/rust/>rust<span class=count>3</span></a></li></ul></section></section><footer id=site-footer><ul class=socnet-icons></ul><p class=copyright>&copy; 2020
-Cluttered Room
-.<br>Except where otherwise noted, content on this site is licensed under the <a href=https://github.com/h1g0/h1g0.github.io/blob/master/LICENSE target=_blank>MIT license</a>.</p></footer><a id=back-to-top href=# class="fas fa-arrow-up fa-2x"></a><script src=/js/bundle.min.e0c399b948d3cf5c3a5e3badb94023d0b064a19ac39fd8cd79fb9f57fa4d1091.js integrity="sha256-4MOZuUjTz1w6XjutuUAj0LBkoZrDn9jNefufV/pNEJE="></script><script src=/js/add-on.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-164022455-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></div></body></html>
+</code></pre></div><p>と、実に簡単に分かち書きと読みがなの付与ができた<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>。</p>
+<h2 id=利用できる関数>利用できる関数</h2>
+<p>分割された各形態素に対して利用できる関数は次の通り<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>。</p>
+<ul>
+<li><code>surface</code>:分割された後の形態素</li>
+<li><code>pos</code>:その形態素に関する情報</li>
+<li><code>normalized_form</code>: 正規化された形</li>
+<li><code>reading_form</code>: 読みがな</li>
+<li><code>dictionary_form</code>: 辞書形</li>
+</ul>
+<h2 id=ここまでの感想>ここまでの感想</h2>
+<p>わずか数行のコードで、とても簡単にRustでの自然言語処理の第一歩を踏み出すことができた。
+ここから更に色々遊べそうである。</p>
+<h2 id=追記>追記</h2>
+<p><a href=https://github.com/Yasu-umi/sudachiclone-rs target=_blank>sudachiclone-rs</a>という、別の方が作成したSudachiのRustクローン<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>もあるらしい。
+そしてこちらは<a href=https://crates.io/ target=_blank>crates.io</a>に<a href=https://crates.io/crates/sudachiclone target=_blank>登録</a>されているようだ。</p>
+<iframe style=width:120px;height:240px marginwidth=0 marginheight=0 scrolling=no frameborder=0 src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=h1g00d-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=4297105594&linkId=2adddcd9dd378709637c18e7cb460a8f"></iframe>
+<iframe style=width:120px;height:240px marginwidth=0 marginheight=0 scrolling=no frameborder=0 src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=h1g00d-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B077NSY211&linkId=bb9a7faf176e76c579c2aad4e12eed8f"></iframe>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>作者の方もissueとして認識してはいるようである。&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p>辞書ファイルへのパスが長すぎるので、置く場所を自プロジェクトのディレクトリ内にしてもよかったかもしれない。&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:3 role=doc-endnote>
+<p>「白砂（しらすな）」を「はくしゃ」としているが、これは十分許容範囲であるように思われる。&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:4 role=doc-endnote>
+<p><a href=https://github.com/sorami/sudachi.rs/blob/develop/src/morpheme.rs target=_blank>https://github.com/sorami/sudachi.rs/blob/develop/src/morpheme.rs</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:5 role=doc-endnote>
+<p>正確にはSudachiPyのRustクローン&#160;<a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<footer>
+<div class=stats>
+<ul class=categories>
+<li><a class=article-terms-link href=/categories/rust/>Rust</a></li>
+</ul>
+<ul class=tags>
+<li><a class=article-terms-link href=/tags/rust/>Rust</a></li>
+<li><a class=article-terms-link href=/tags/%e8%87%aa%e7%84%b6%e8%a8%80%e8%aa%9e%e5%87%a6%e7%90%86/>自然言語処理</a></li>
+<li><a class=article-terms-link href=/tags/sudachi/>sudachi</a></li>
+</ul>
+</div>
+</footer>
+</div>
+<div class=post>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//cluttered-room.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+</article>
+<div class=pagination>
+<a href=/blog/2020/04/bought-new-hhkb/ class="button right"><span>HHKB Professional HYBRID Type-Sを買った</span></a>
+</div>
+</main>
+<section id=site-sidebar>
+<section id=recent-posts>
+<header>
+<h1>最近の投稿</h1>
+</header>
+<article class=mini-post>
+<header>
+<h2><a href=/blog/2020/04/play-with-sudachi-rs/>sudachi.rsを使って遊んでみる（ための下準備）</a></h2>
+<time class=published datetime="2020-04-16 23:52:11 +0900 +0900">2020-04-16</time>
+</header>
+</article>
+<article class=mini-post>
+<header>
+<h2><a href=/blog/2020/04/bought-new-hhkb/>HHKB Professional HYBRID Type-Sを買った</a></h2>
+<time class=published datetime="2020-04-13 00:42:51 +0900 +0900">2020-04-13</time>
+</header>
+</article>
+<article class=mini-post>
+<header>
+<h2><a href=/blog/2020/04/test/>Hello, Hugo!</a></h2>
+<time class=published datetime="2020-04-09 00:12:59 +0900 +0900">2020-04-09</time>
+</header>
+</article>
+<article class=mini-post>
+<header>
+<h2><a href=/blog/2019/10/python-filecmp-shallow/>[Python] filecmpの引数shallowの細かい仕様について</a></h2>
+<time class=published datetime="2019-10-06 00:00:00 +0900 +0900">2019-10-06</time>
+</header>
+</article>
+<article class=mini-post>
+<header>
+<h2><a href=/blog/2019/07/rustup-inst-exe-failed-to-install/>[Rust] rustup-inst.exeでの新規インストール時に「アクセスが拒否されました。(os error 5)」が出る時の対処法</a></h2>
+<time class=published datetime="2019-07-28 00:00:00 +0900 +0900">2019-07-28</time>
+</header>
+</article>
+<footer>
+<a href=/blog/ class=button>続きを見る</a>
+</footer>
+</section>
+<section id=categories>
+<header>
+<h1><a href=/categories>カテゴリ</a></h1>
+</header>
+<ul>
+<li>
+<a href=/categories/gadgets/>gadgets<span class=count>1</span></a>
+<li>
+<a href=/categories/javascript/>javascript<span class=count>1</span></a>
+<li>
+<a href=/categories/latex/>latex<span class=count>4</span></a>
+<li>
+<a href=/categories/misc/>misc<span class=count>2</span></a>
+<li>
+<a href=/categories/others/>others<span class=count>1</span></a>
+<li>
+<a href=/categories/python/>python<span class=count>1</span></a>
+<li>
+<a href=/categories/rust/>rust<span class=count>3</span></a>
+</li>
+</ul>
+</section>
+</section>
+<footer id=site-footer>
+<ul class=socnet-icons>
+</ul>
+<p class=copyright>
+© 2020 Cluttered Room
+<br>
+Except where otherwise noted, content on this site is licensed under the <a href=https://github.com/h1g0/h1g0.github.io/blob/master/LICENSE target=_blank>MIT license</a>.
+</p>
+</footer>
+<a id=back-to-top href=# class="fas fa-arrow-up fa-2x"></a>
+<script src=/js/bundle.min.839ce31f00dd8cc333000b906df00173c96db2e24677303a20ffaa7359db68f5.js integrity="sha256-g5zjHwDdjMMzAAuQbfABc8ltsuJGdzA6IP+qc1nbaPU="></script>
+<script src=/js/add-on.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-164022455-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</div>
+</body>
+</html>
