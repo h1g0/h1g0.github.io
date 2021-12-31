@@ -1,0 +1,15 @@
+{
+  "name": "game_of_life_rs",
+  "collaborators": [
+    "hi_go <me@clutte.red>"
+  ],
+  "version": "0.2.0",
+  "files": [
+    "game_of_life_rs_bg.wasm",
+    "game_of_life_rs.js",
+    "game_of_life_rs.d.ts"
+  ],
+  "module": "game_of_life_rs.js",
+  "types": "game_of_life_rs.d.ts",
+  "sideEffects": false
+}
