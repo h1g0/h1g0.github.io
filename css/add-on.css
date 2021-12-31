@@ -58,8 +58,18 @@ code {
 .footnotes{
   font-size: .7em;
 }
-.post>footer .stats li ul li a {
+.stats ul li a {
   overflow: visible;
   white-space: nowrap;
   text-transform: none !important;
+  letter-spacing: .15em;
+}
+
+#site-sidebar ul{
+  text-transform: none;
+  letter-spacing: .15em;
+}
+
+#socnet-share .share-btn{
+  font-size: .7em !important;
 }
