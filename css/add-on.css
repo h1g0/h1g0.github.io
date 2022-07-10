@@ -73,3 +73,9 @@ code {
 #socnet-share .share-btn{
   font-size: .7em !important;
 }
+
+.nav-title a img{
+  height: auto !important;
+  max-height: 24px !important;
+  width: auto !important;
+}
