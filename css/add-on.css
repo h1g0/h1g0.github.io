@@ -75,6 +75,7 @@ code {
 }
 
 .nav-title a img{
+  margin-top: 0 !important;
   height: auto !important;
   max-height: 24px !important;
   width: auto !important;
