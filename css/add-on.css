@@ -12,6 +12,7 @@ h1, h2, h3, h4, h5, h6, body {
   letter-spacing: 0em !important;
   line-height: 1.7;
   text-transform: none !important;
+  overflow-wrap: anywhere;
 }
 
 code {
